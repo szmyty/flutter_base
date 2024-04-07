@@ -1,15 +1,15 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/material.dart' hide ProgressIndicator;
-import 'package:flutter_test/flutter_test.dart';
-import 'package:news_blocks_ui/src/widgets/widgets.dart';
-import 'package:video_player/video_player.dart';
-import 'package:video_player_platform_interface/video_player_platform_interface.dart';
+import "package:flutter/material.dart" hide ProgressIndicator;
+import "package:flutter_test/flutter_test.dart";
+import "package:feed_blocks_ui/src/widgets/widgets.dart";
+import "package:video_player/video_player.dart";
+import "package:video_player_platform_interface/video_player_platform_interface.dart";
 
-import '../../helpers/helpers.dart';
+import "../../helpers/helpers.dart";
 
 void main() {
-  group('InlineVideo', () {
+  group("InlineVideo", () {
     setUp(
       () {
         final fakeVideoPlayerPlatform = FakeVideoPlayerPlatform();
@@ -17,13 +17,13 @@ void main() {
       },
     );
 
-    testWidgets('renders progressIndicator when loading', (tester) async {
-      const progressIndicatorKey = Key('__progress_indicator__');
+    testWidgets("renders progressIndicator when loading", (tester) async {
+      const progressIndicatorKey = Key("__progress_indicator__");
       final controller = FakeVideoPlayerController();
 
       await tester.pumpApp(
         InlineVideo(
-          videoUrl: 'videoUrl',
+          videoUrl: "videoUrl",
           progressIndicator: ProgressIndicator(key: progressIndicatorKey),
           videoPlayerControllerBuilder: (_) => controller,
         ),
@@ -32,7 +32,7 @@ void main() {
       expect(find.byKey(progressIndicatorKey), findsOneWidget);
     });
 
-    testWidgets('renders VideoPlayer when initialized', (tester) async {
+    testWidgets("renders VideoPlayer when initialized", (tester) async {
       final controller = FakeVideoPlayerController();
 
       controller.value = controller.value.copyWith(
@@ -42,7 +42,7 @@ void main() {
 
       await tester.pumpApp(
         InlineVideo(
-          videoUrl: 'videoUrl',
+          videoUrl: "videoUrl",
           progressIndicator: ProgressIndicator(),
           videoPlayerControllerBuilder: (_) => controller,
         ),
@@ -51,7 +51,7 @@ void main() {
       expect(find.byType(VideoPlayer), findsOneWidget);
     });
 
-    testWidgets('renders VideoPlayer when initialized', (tester) async {
+    testWidgets("renders VideoPlayer when initialized", (tester) async {
       final controller = FakeVideoPlayerController();
 
       controller.value = controller.value.copyWith(
@@ -61,7 +61,7 @@ void main() {
 
       await tester.pumpApp(
         InlineVideo(
-          videoUrl: 'videoUrl',
+          videoUrl: "videoUrl",
           progressIndicator: ProgressIndicator(),
           videoPlayerControllerBuilder: (_) => controller,
         ),
@@ -71,8 +71,8 @@ void main() {
     });
 
     testWidgets(
-        'plays video when tapped '
-        'and video is not playing', (tester) async {
+        "plays video when tapped "
+        "and video is not playing", (tester) async {
       final controller = FakeVideoPlayerController();
 
       controller.value = controller.value.copyWith(
@@ -82,21 +82,21 @@ void main() {
 
       await tester.pumpApp(
         InlineVideo(
-          videoUrl: 'videoUrl',
+          videoUrl: "videoUrl",
           progressIndicator: ProgressIndicator(),
           videoPlayerControllerBuilder: (_) => controller,
         ),
       );
 
-      await tester.tap(find.byKey(Key('inlineVideo_gestureDetector')));
+      await tester.tap(find.byKey(Key("inlineVideo_gestureDetector")));
       await tester.pump();
       expect(controller.playCalled, equals(1));
       expect(controller.pauseCalled, equals(0));
     });
 
     testWidgets(
-        'pauses video when tapped '
-        'and video is playing', (tester) async {
+        "pauses video when tapped "
+        "and video is playing", (tester) async {
       final controller = FakeVideoPlayerController();
 
       controller.value = controller.value.copyWith(
@@ -106,7 +106,7 @@ void main() {
 
       await tester.pumpApp(
         InlineVideo(
-          videoUrl: 'videoUrl',
+          videoUrl: "videoUrl",
           progressIndicator: ProgressIndicator(),
           videoPlayerControllerBuilder: (_) => controller,
         ),
@@ -118,14 +118,14 @@ void main() {
 
       await tester.pump();
 
-      await tester.tap(find.byKey(Key('inlineVideo_gestureDetector')));
+      await tester.tap(find.byKey(Key("inlineVideo_gestureDetector")));
       await tester.pump();
       expect(controller.playCalled, equals(0));
       expect(controller.pauseCalled, equals(1));
     });
 
-    testWidgets('builds VideoPlayerController with videoUrl', (tester) async {
-      const videoUrl = 'videoUrl';
+    testWidgets("builds VideoPlayerController with videoUrl", (tester) async {
+      const videoUrl = "videoUrl";
       late String capturedVideoUrl;
 
       await tester.pumpApp(
@@ -161,7 +161,7 @@ class FakeVideoPlayerController extends ValueNotifier<VideoPlayerValue>
   int textureId = VideoPlayerController.kUninitializedTextureId;
 
   @override
-  String get dataSource => '';
+  String get dataSource => "";
 
   @override
   Map<String, String> get httpHeaders => <String, String>{};
@@ -170,7 +170,7 @@ class FakeVideoPlayerController extends ValueNotifier<VideoPlayerValue>
   DataSourceType get dataSourceType => DataSourceType.file;
 
   @override
-  String get package => '';
+  String get package => "";
 
   @override
   Future<Duration> get position async => value.position;
@@ -222,13 +222,13 @@ class _FakeClosedCaptionFile extends ClosedCaptionFile {
   List<Caption> get captions {
     return <Caption>[
       const Caption(
-        text: 'one',
+        text: "one",
         number: 0,
         start: Duration(milliseconds: 100),
         end: Duration(milliseconds: 200),
       ),
       const Caption(
-        text: 'two',
+        text: "two",
         number: 1,
         start: Duration(milliseconds: 300),
         end: Duration(milliseconds: 400),

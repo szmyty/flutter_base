@@ -2,7 +2,7 @@
 library api;
 
 export "src/data/feed_data_source.dart" show FeedDataSource;
-export "src/data/in_memory_feed_data_source.dart" show InMemoryNewsDataSource;
+export "src/data/in_memory_feed_data_source.dart" show InMemoryFeedDataSource;
 export "src/data/models/models.dart"
     show
         Article,

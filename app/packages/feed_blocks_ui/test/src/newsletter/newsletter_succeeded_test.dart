@@ -1,17 +1,17 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/widgets.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:news_blocks_ui/src/newsletter/index.dart';
+import "package:flutter/widgets.dart";
+import "package:flutter_test/flutter_test.dart";
+import "package:feed_blocks_ui/src/newsletter/index.dart";
 
-import '../../helpers/helpers.dart';
+import "../../helpers/helpers.dart";
 
 void main() {
-  group('NewsletterSucceeded', () {
-    testWidgets('renders correctly', (tester) async {
-      const headerText = 'headerText';
-      const contentText = 'contentText';
-      const footerText = 'footerText';
+  group("NewsletterSucceeded", () {
+    testWidgets("renders correctly", (tester) async {
+      const headerText = "headerText";
+      const contentText = "contentText";
+      const footerText = "footerText";
       await tester.pumpApp(
         NewsletterSucceeded(
           headerText: headerText,

@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 
-import 'package:flutter/foundation.dart';
-import 'package:flutter_test/flutter_test.dart';
+import "package:flutter/foundation.dart";
+import "package:flutter_test/flutter_test.dart";
 
 /// A comparator for golden tests that allows for a small difference in pixels.
 ///
@@ -38,8 +38,8 @@ class TolerantComparator extends LocalFileComparator {
         throw FlutterError(error);
       } else {
         print(
-          'Warning - golden differed less than $differenceTolerance% '
-          '(${result.diffPercent}%). Ignoring failure but logging the error.',
+          "Warning - golden differed less than $differenceTolerance% "
+          "(${result.diffPercent}%). Ignoring failure but logging the error.",
         );
         print(error);
       }
@@ -53,7 +53,7 @@ void setUpTolerantComparator() {
   final oldComparator = goldenFileComparator as LocalFileComparator;
   final newComparator = TolerantComparator.from(
     comparator: oldComparator,
-    Uri.parse('${oldComparator.basedir}test'),
+    Uri.parse("${oldComparator.basedir}test"),
   );
   expect(oldComparator.basedir, newComparator.basedir);
   goldenFileComparator = newComparator;

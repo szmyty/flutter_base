@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:news_blocks/news_blocks.dart';
-import 'package:news_blocks_ui/news_blocks_ui.dart';
+import "package:flutter/material.dart";
+import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks_ui/feed_blocks_ui.dart";
 
 /// {@template post_medium}
 /// A reusable post medium block widget.

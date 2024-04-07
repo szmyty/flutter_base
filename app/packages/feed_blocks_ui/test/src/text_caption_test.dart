@@ -1,23 +1,23 @@
 // ignore_for_file: unnecessary_const, prefer_const_constructors
 
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:news_blocks/news_blocks.dart';
-import 'package:news_blocks_ui/news_blocks_ui.dart';
+import "package:flutter/material.dart";
+import "package:flutter_test/flutter_test.dart";
+import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks_ui/feed_blocks_ui.dart";
 
-import '../helpers/helpers.dart';
+import "../helpers/helpers.dart";
 
 void main() {
-  group('TextCaption', () {
+  group("TextCaption", () {
     setUpAll(setUpTolerantComparator);
 
     testWidgets(
-        'renders correctly '
-        'with default normal color', (tester) async {
+        "renders correctly "
+        "with default normal color", (tester) async {
       final widget = Center(
         child: TextCaption(
           block: TextCaptionBlock(
-            text: 'Text caption',
+            text: "Text caption",
             color: TextCaptionColor.normal,
           ),
         ),
@@ -27,17 +27,17 @@ void main() {
 
       await expectLater(
         find.byType(TextCaption),
-        matchesGoldenFile('text_caption_normal_color_default.png'),
+        matchesGoldenFile("text_caption_normal_color_default.png"),
       );
     });
 
     testWidgets(
-        'renders correctly '
-        'with default light color', (tester) async {
+        "renders correctly "
+        "with default light color", (tester) async {
       final widget = Center(
         child: TextCaption(
           block: TextCaptionBlock(
-            text: 'Text caption',
+            text: "Text caption",
             color: TextCaptionColor.light,
           ),
         ),
@@ -47,17 +47,17 @@ void main() {
 
       await expectLater(
         find.byType(TextCaption),
-        matchesGoldenFile('text_caption_light_color_default.png'),
+        matchesGoldenFile("text_caption_light_color_default.png"),
       );
     });
 
     testWidgets(
-        'renders correctly '
-        'with provided normal color', (tester) async {
+        "renders correctly "
+        "with provided normal color", (tester) async {
       final widget = Center(
         child: TextCaption(
           block: TextCaptionBlock(
-            text: 'Text caption',
+            text: "Text caption",
             color: TextCaptionColor.normal,
           ),
           colorValues: const {
@@ -70,17 +70,17 @@ void main() {
 
       await expectLater(
         find.byType(TextCaption),
-        matchesGoldenFile('text_caption_normal_color_provided.png'),
+        matchesGoldenFile("text_caption_normal_color_provided.png"),
       );
     });
 
     testWidgets(
-        'renders correctly '
-        'with provided light color', (tester) async {
+        "renders correctly "
+        "with provided light color", (tester) async {
       final widget = Center(
         child: TextCaption(
           block: TextCaptionBlock(
-            text: 'Text caption',
+            text: "Text caption",
             color: TextCaptionColor.light,
           ),
           colorValues: const {
@@ -93,7 +93,7 @@ void main() {
 
       await expectLater(
         find.byType(TextCaption),
-        matchesGoldenFile('text_caption_light_color_provided.png'),
+        matchesGoldenFile("text_caption_light_color_provided.png"),
       );
     });
   });

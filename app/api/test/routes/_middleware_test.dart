@@ -1,5 +1,5 @@
 import "package:dart_frog/dart_frog.dart";
-import "package:flutter_news_example_api/api.dart";
+import "package:app_api/api.dart";
 import "package:mocktail/mocktail.dart";
 import "package:test/test.dart";
 
@@ -9,12 +9,12 @@ class _MockRequestContext extends Mock implements RequestContext {}
 
 void main() {
   group("middleware", () {
-    test("provides NewsDataSource instance.", () async {
+    test("provides FeedDataSource instance.", () async {
       final context = _MockRequestContext();
 
       final handler = middleware(
         (_) {
-          expect(context.read<NewsDataSource>(), isNotNull);
+          expect(context.read<FeedDataSource>(), isNotNull);
           return Response();
         },
       );
@@ -22,10 +22,10 @@ void main() {
 
       when(() => context.request).thenReturn(request);
 
-      when(() => context.read<NewsDataSource>())
-          .thenReturn(InMemoryNewsDataSource());
+      when(() => context.read<FeedDataSource>())
+          .thenReturn(InMemoryFeedDataSource());
 
-      when(() => context.provide<NewsDataSource>(any())).thenReturn(context);
+      when(() => context.provide<FeedDataSource>(any())).thenReturn(context);
       when(() => context.provide<RequestUser>(any())).thenReturn(context);
       await handler(context);
     });

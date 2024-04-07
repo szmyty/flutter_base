@@ -7,13 +7,13 @@ import "package:news_blocks/news_blocks.dart";
 
 part "static_feed_data.dart";
 
-/// {@template in_memory_news_data_source}
+/// {@template in_memory_feed_data_source}
 /// An implementation of [FeedDataSource] which
 /// is powered by in-memory news content.
 /// {@endtemplate}
-class InMemoryNewsDataSource implements FeedDataSource {
+class InMemoryFeedDataSource implements FeedDataSource {
   /// {@macro in_memory_news_data_store}
-  InMemoryNewsDataSource() : _userSubscriptions = <String, String>{};
+  InMemoryFeedDataSource() : _userSubscriptions = <String, String>{};
 
   final Map<String, String> _userSubscriptions;
 

@@ -1,8 +1,8 @@
-import 'package:app_ui/app_ui.dart';
-import 'package:flutter/material.dart';
-import 'package:news_blocks/news_blocks.dart';
-import 'package:news_blocks_ui/news_blocks_ui.dart';
-import 'package:news_blocks_ui/src/widgets/widgets.dart';
+import "package:app_ui/app_ui.dart";
+import "package:flutter/material.dart";
+import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks_ui/feed_blocks_ui.dart";
+import "package:feed_blocks_ui/src/widgets/widgets.dart";
 
 /// {@template post_large}
 /// A reusable post large block widget.
@@ -82,14 +82,14 @@ class PostLargeContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return isContentOverlaid
         ? Stack(
-            key: const Key('postLarge_stack'),
+            key: const Key("postLarge_stack"),
             alignment: Alignment.bottomLeft,
             children: children,
           )
         : Padding(
             padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
             child: Column(
-              key: const Key('postLarge_column'),
+              key: const Key("postLarge_column"),
               children: children,
             ),
           );

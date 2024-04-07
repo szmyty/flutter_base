@@ -1,6 +1,6 @@
-import 'package:app_ui/app_ui.dart';
-import 'package:flutter/material.dart';
-import 'package:news_blocks/news_blocks.dart';
+import "package:app_ui/app_ui.dart";
+import "package:flutter/material.dart";
+import "package:news_blocks/news_blocks.dart";
 
 /// {@template banner_ad_container}
 /// A reusable banner ad container widget.
@@ -26,7 +26,7 @@ class BannerAdContainer extends StatelessWidget {
         : AppSpacing.xlg + AppSpacing.sm;
 
     return ColoredBox(
-      key: const Key('bannerAdContainer_coloredBox'),
+      key: const Key("bannerAdContainer_coloredBox"),
       color: AppColors.brightGrey,
       child: Padding(
         padding: EdgeInsets.symmetric(

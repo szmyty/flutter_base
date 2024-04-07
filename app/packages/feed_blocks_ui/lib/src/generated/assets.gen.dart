@@ -74,7 +74,7 @@ class AssetGenImage {
     bool matchTextDirection = false,
     bool gaplessPlayback = false,
     bool isAntiAlias = false,
-    String? package = 'news_blocks_ui',
+    String? package = 'feed_blocks_ui',
     FilterQuality filterQuality = FilterQuality.low,
     int? cacheWidth,
     int? cacheHeight,
@@ -109,7 +109,7 @@ class AssetGenImage {
 
   ImageProvider provider({
     AssetBundle? bundle,
-    String? package = 'news_blocks_ui',
+    String? package = 'feed_blocks_ui',
   }) {
     return AssetImage(
       _assetName,
@@ -120,7 +120,7 @@ class AssetGenImage {
 
   String get path => _assetName;
 
-  String get keyName => 'packages/news_blocks_ui/$_assetName';
+  String get keyName => 'packages/feed_blocks_ui/$_assetName';
 }
 
 class SvgGenImage {
@@ -132,7 +132,7 @@ class SvgGenImage {
     Key? key,
     bool matchTextDirection = false,
     AssetBundle? bundle,
-    String? package = 'news_blocks_ui',
+    String? package = 'feed_blocks_ui',
     double? width,
     double? height,
     BoxFit fit = BoxFit.contain,
@@ -173,5 +173,5 @@ class SvgGenImage {
 
   String get path => _assetName;
 
-  String get keyName => 'packages/news_blocks_ui/$_assetName';
+  String get keyName => 'packages/feed_blocks_ui/$_assetName';
 }

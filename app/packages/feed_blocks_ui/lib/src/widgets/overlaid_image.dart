@@ -1,6 +1,6 @@
-import 'package:app_ui/app_ui.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/widgets.dart';
+import "package:app_ui/app_ui.dart";
+import "package:cached_network_image/cached_network_image.dart";
+import "package:flutter/widgets.dart";
 
 /// {@template overlaid_image}
 /// A reusable image widget overlaid with colored gradient.
@@ -27,7 +27,7 @@ class OverlaidImage extends StatelessWidget {
     return AspectRatio(
       aspectRatio: aspectRatio,
       child: Stack(
-        key: const Key('overlaidImage_stack'),
+        key: const Key("overlaidImage_stack"),
         children: [
           CachedNetworkImage(
             imageUrl: imageUrl,

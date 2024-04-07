@@ -11,7 +11,7 @@ import "package:flutter_bloc/flutter_bloc.dart";
 // import "package:flutter_news_example/l10n/l10n.dart";
 // import "package:flutter_news_example/login/login.dart" hide LoginEvent;
 // import "package:flutter_news_example/theme_selector/theme_selector.dart";
-// import "package:news_blocks_ui/news_blocks_ui.dart";
+// import "package:feed_blocks_ui/feed_blocks_ui.dart";
 // import "package:news_repository/news_repository.dart";
 // import "package:notifications_repository/notifications_repository.dart";
 import "package:user_repository/user_repository.dart";

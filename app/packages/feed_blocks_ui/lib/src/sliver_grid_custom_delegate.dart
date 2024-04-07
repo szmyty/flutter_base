@@ -1,6 +1,6 @@
-import 'dart:math' as math;
-import 'package:app_ui/app_ui.dart';
-import 'package:flutter/rendering.dart';
+import "dart:math" as math;
+import "package:app_ui/app_ui.dart";
+import "package:flutter/rendering.dart";
 
 /// Custom GridDelegate that allows to use [HeaderGridTileLayout].
 /// This way, the grid can have the first element as a header.

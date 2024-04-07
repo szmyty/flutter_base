@@ -1,8 +1,8 @@
-import 'package:app_ui/app_ui.dart' show AppColors, AppSpacing;
-import 'package:flutter/material.dart';
-import 'package:news_blocks/news_blocks.dart';
-import 'package:news_blocks_ui/src/generated/generated.dart';
-import 'package:news_blocks_ui/src/widgets/widgets.dart';
+import "package:app_ui/app_ui.dart" show AppColors, AppSpacing;
+import "package:flutter/material.dart";
+import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks_ui/src/generated/generated.dart";
+import "package:feed_blocks_ui/src/widgets/widgets.dart";
 
 /// {@template slideshow}
 /// A reusable slideshow.
@@ -75,7 +75,7 @@ class _SlideshowCategoryTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      key: const Key('slideshow_categoryTitle'),
+      key: const Key("slideshow_categoryTitle"),
       padding: const EdgeInsets.only(left: AppSpacing.lg),
       child: SlideshowCategory(
         isIntroduction: false,
@@ -95,7 +95,7 @@ class _SlideshowHeaderTitle extends StatelessWidget {
     final theme = Theme.of(context).textTheme;
 
     return Padding(
-      key: const Key('slideshow_headerTitle'),
+      key: const Key("slideshow_headerTitle"),
       padding: const EdgeInsets.only(
         left: AppSpacing.lg,
         bottom: AppSpacing.lg,
@@ -124,7 +124,7 @@ class _SlideshowPageView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: PageView.builder(
-        key: const Key('slideshow_pageView'),
+        key: const Key("slideshow_pageView"),
         physics: const NeverScrollableScrollPhysics(),
         controller: controller,
         itemCount: slides.length,
@@ -154,11 +154,11 @@ class SlideshowItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox.square(
-          key: const Key('slideshow_slideshowItemImage'),
+          key: const Key("slideshow_slideshowItemImage"),
           child: Image.network(slide.imageUrl),
         ),
         Padding(
-          key: const Key('slideshow_slideshowItemCaption'),
+          key: const Key("slideshow_slideshowItemCaption"),
           padding: const EdgeInsets.only(
             left: AppSpacing.lg,
             top: AppSpacing.lg,
@@ -172,7 +172,7 @@ class SlideshowItem extends StatelessWidget {
           ),
         ),
         Padding(
-          key: const Key('slideshow_slideshowItemDescription'),
+          key: const Key("slideshow_slideshowItemDescription"),
           padding: const EdgeInsets.only(
             left: AppSpacing.lg,
             top: AppSpacing.lg,
@@ -186,7 +186,7 @@ class SlideshowItem extends StatelessWidget {
           ),
         ),
         Padding(
-          key: const Key('slideshow_slideshowItemPhotoCredit'),
+          key: const Key("slideshow_slideshowItemPhotoCredit"),
           padding: const EdgeInsets.only(
             left: AppSpacing.lg,
             top: AppSpacing.xxxs,
@@ -232,7 +232,7 @@ class _SlideshowButtonsState extends State<_SlideshowButtons> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final navigationBarLabel =
-        '${_currentPage + 1} ${widget.navigationLabel} ${widget.totalPages}';
+        "${_currentPage + 1} ${widget.navigationLabel} ${widget.totalPages}";
 
     return Padding(
       padding: const EdgeInsets.symmetric(
@@ -242,7 +242,7 @@ class _SlideshowButtonsState extends State<_SlideshowButtons> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           IconButton(
-            key: const Key('slideshow_slideshowButtonsLeft'),
+            key: const Key("slideshow_slideshowButtonsLeft"),
             onPressed: () {
               if (_currentPage >= 1) {
                 widget.controller.previousPage(
@@ -260,7 +260,7 @@ class _SlideshowButtonsState extends State<_SlideshowButtons> {
             style: theme.textTheme.titleLarge?.apply(color: AppColors.white),
           ),
           IconButton(
-            key: const Key('slideshow_slideshowButtonsRight'),
+            key: const Key("slideshow_slideshowButtonsRight"),
             onPressed: () {
               if (_currentPage < widget.totalPages - 1) {
                 widget.controller.nextPage(

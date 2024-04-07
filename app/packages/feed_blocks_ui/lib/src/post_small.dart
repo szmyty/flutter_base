@@ -1,9 +1,9 @@
-import 'package:app_ui/app_ui.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
-import 'package:news_blocks/news_blocks.dart';
-import 'package:news_blocks_ui/news_blocks_ui.dart';
-import 'package:news_blocks_ui/src/widgets/widgets.dart';
+import "package:app_ui/app_ui.dart";
+import "package:cached_network_image/cached_network_image.dart";
+import "package:flutter/material.dart";
+import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks_ui/feed_blocks_ui.dart";
+import "package:feed_blocks_ui/src/widgets/widgets.dart";
 
 /// {@template post_small}
 /// A reusable post small news block widget.

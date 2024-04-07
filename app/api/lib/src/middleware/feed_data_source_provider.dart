@@ -1,7 +1,7 @@
 import "package:app_api/api.dart";
 import "package:dart_frog/dart_frog.dart";
 
-final _feedDataSource = InMemoryNewsDataSource();
+final _feedDataSource = InMemoryFeedDataSource();
 
 /// Provider a [FeedDataSource] to the current [RequestContext].
 Middleware feedDataSourceProvider() {

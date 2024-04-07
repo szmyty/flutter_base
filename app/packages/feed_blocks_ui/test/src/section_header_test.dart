@@ -1,18 +1,18 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:news_blocks/news_blocks.dart';
-import 'package:news_blocks_ui/news_blocks_ui.dart';
+import "package:flutter/material.dart";
+import "package:flutter_test/flutter_test.dart";
+import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks_ui/feed_blocks_ui.dart";
 
-import '../helpers/helpers.dart';
+import "../helpers/helpers.dart";
 
 void main() {
-  group('SectionHeader', () {
+  group("SectionHeader", () {
     setUpAll(setUpTolerantComparator);
 
-    testWidgets('renders correctly without action', (tester) async {
+    testWidgets("renders correctly without action", (tester) async {
       const widget = Center(
         child: SectionHeader(
-          block: SectionHeaderBlock(title: 'example'),
+          block: SectionHeaderBlock(title: "example"),
         ),
       );
 
@@ -20,15 +20,15 @@ void main() {
 
       await expectLater(
         find.byType(SectionHeader),
-        matchesGoldenFile('section_header_without_action.png'),
+        matchesGoldenFile("section_header_without_action.png"),
       );
     });
 
-    testWidgets('renders correctly with action', (tester) async {
+    testWidgets("renders correctly with action", (tester) async {
       const widget = Center(
         child: SectionHeader(
           block: SectionHeaderBlock(
-            title: 'example',
+            title: "example",
             action: NavigateToFeedCategoryAction(category: Category.top),
           ),
         ),
@@ -38,18 +38,18 @@ void main() {
 
       await expectLater(
         find.byType(SectionHeader),
-        matchesGoldenFile('section_header_with_action.png'),
+        matchesGoldenFile("section_header_with_action.png"),
       );
     });
 
-    testWidgets('onPressed is called with action on tap', (tester) async {
+    testWidgets("onPressed is called with action on tap", (tester) async {
       final actions = <BlockAction>[];
       const action = NavigateToFeedCategoryAction(category: Category.top);
 
       final widget = Center(
         child: SectionHeader(
           block: const SectionHeaderBlock(
-            title: 'example',
+            title: "example",
             action: action,
           ),
           onPressed: actions.add,

@@ -1,7 +1,7 @@
 import "dart:io";
 
 import "package:dart_frog/dart_frog.dart";
-import "package:flutter_news_example_api/api.dart";
+import "package:app_api/api.dart";
 
 Future<Response> onRequest(RequestContext context) async {
   if (context.request.method != HttpMethod.get) {
@@ -11,7 +11,7 @@ Future<Response> onRequest(RequestContext context) async {
   final reqUser = context.read<RequestUser>();
   if (reqUser.isAnonymous) return Response(statusCode: HttpStatus.badRequest);
 
-  final user = await context.read<NewsDataSource>().getUser(userId: reqUser.id);
+  final user = await context.read<FeedDataSource>().getUser(userId: reqUser.id);
   if (user == null) return Response(statusCode: HttpStatus.notFound);
 
   final response = CurrentUserResponse(user: user);

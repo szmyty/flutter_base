@@ -1,13 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:app_ui/app_ui.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:news_blocks_ui/src/sliver_grid_custom_delegate.dart';
+import "package:app_ui/app_ui.dart";
+import "package:flutter/rendering.dart";
+import "package:flutter_test/flutter_test.dart";
+import "package:feed_blocks_ui/src/sliver_grid_custom_delegate.dart";
 
 void main() {
-  group('SliverGridCustomDelegate', () {
-    testWidgets('getLayout when crossAxisCount is <=1', (tester) async {
+  group("SliverGridCustomDelegate", () {
+    testWidgets("getLayout when crossAxisCount is <=1", (tester) async {
       const childAspectRatio = 3 / 2;
       const childCrossAxisExtent = 343.0;
       const childMainAxisExtent = childCrossAxisExtent * 1 / childAspectRatio;
@@ -48,7 +48,7 @@ void main() {
       expect(customDelegate, headerDelegate);
     });
 
-    testWidgets('getLayout when crossAxisCount is >1', (tester) async {
+    testWidgets("getLayout when crossAxisCount is >1", (tester) async {
       const childAspectRatio = 3 / 2;
       const crossAxisExtent = 400.0;
       const maxCrossAxisExtent = 200.0;

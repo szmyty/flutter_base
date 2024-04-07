@@ -1,11 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
-import "package:flutter_news_example_api/api.dart";
-import "package:flutter_news_example_api/src/data/in_memory_news_data_source.dart";
+import "package:app_api/api.dart";
+import "package:app_api/src/data/in_memory_feed_data_source.dart";
 import "package:news_blocks/news_blocks.dart";
 import "package:test/test.dart";
 
-class MyNewsDataSource extends NewsDataSource {
+class MyFeedDataSource extends FeedDataSource {
   @override
   Future<void> createSubscription({
     required String userId,
@@ -133,17 +133,17 @@ void main() {
     );
   }
 
-  group("NewsDataSource", () {
+  group("FeedDataSource", () {
     test("can be extended", () {
-      expect(MyNewsDataSource.new, returnsNormally);
+      expect(MyFeedDataSource.new, returnsNormally);
     });
   });
 
-  group("InMemoryNewsDataSource", () {
-    late NewsDataSource newsDataSource;
+  group("InMemoryFeedDataSource", () {
+    late FeedDataSource newsDataSource;
 
     setUp(() {
-      newsDataSource = InMemoryNewsDataSource();
+      newsDataSource = InMemoryFeedDataSource();
     });
 
     group("createSubscription", () {

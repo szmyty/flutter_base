@@ -1,7 +1,7 @@
 import "dart:convert";
 import "dart:io";
 
-import "package:flutter_news_example_api/client.dart";
+import "package:app_api/client.dart";
 import "package:http/http.dart" as http;
 import "package:mocktail/mocktail.dart";
 import "package:test/test.dart";

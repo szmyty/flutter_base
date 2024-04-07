@@ -1,6 +1,6 @@
-import 'package:app_ui/app_ui.dart';
-import 'package:flutter/material.dart';
-import 'package:news_blocks_ui/src/widgets/widgets.dart';
+import "package:app_ui/app_ui.dart";
+import "package:flutter/material.dart";
+import "package:feed_blocks_ui/src/widgets/widgets.dart";
 
 /// {@template post_medium_description_layout}
 /// A reusable post medium news block widget showing post description.
@@ -60,7 +60,7 @@ class PostMediumDescriptionLayout extends StatelessWidget {
             ],
           ),
           Text(
-            description ?? '',
+            description ?? "",
             style: textTheme.bodyMedium
                 ?.copyWith(color: AppColors.mediumEmphasisSurface),
           ),

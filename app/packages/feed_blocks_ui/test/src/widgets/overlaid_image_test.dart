@@ -1,17 +1,17 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail_image_network/mocktail_image_network.dart';
-import 'package:news_blocks_ui/src/widgets/widgets.dart';
+import "package:flutter/material.dart";
+import "package:flutter_test/flutter_test.dart";
+import "package:mocktail_image_network/mocktail_image_network.dart";
+import "package:feed_blocks_ui/src/widgets/widgets.dart";
 
-import '../../helpers/helpers.dart';
+import "../../helpers/helpers.dart";
 
 void main() {
-  group('OverlaidImage', () {
-    testWidgets('renders correctly', (tester) async {
+  group("OverlaidImage", () {
+    testWidgets("renders correctly", (tester) async {
       final overlaidImage = OverlaidImage(
-        imageUrl: 'url',
+        imageUrl: "url",
         gradientColor: Colors.black,
       );
 
@@ -20,7 +20,7 @@ void main() {
       );
 
       expect(
-        find.byKey(const Key('overlaidImage_stack')),
+        find.byKey(const Key("overlaidImage_stack")),
         findsOneWidget,
       );
     });

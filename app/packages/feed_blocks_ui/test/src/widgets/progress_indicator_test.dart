@@ -1,17 +1,17 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:app_ui/app_ui.dart';
-import 'package:flutter/material.dart' hide ProgressIndicator;
-import 'package:flutter_test/flutter_test.dart';
-import 'package:news_blocks_ui/src/widgets/widgets.dart';
+import "package:app_ui/app_ui.dart";
+import "package:flutter/material.dart" hide ProgressIndicator;
+import "package:flutter_test/flutter_test.dart";
+import "package:feed_blocks_ui/src/widgets/widgets.dart";
 
-import '../../helpers/helpers.dart';
+import "../../helpers/helpers.dart";
 
 void main() {
-  group('ProgressIndicator', () {
+  group("ProgressIndicator", () {
     testWidgets(
-        'renders ColoredBox '
-        'with gainsboro color as default', (tester) async {
+        "renders ColoredBox "
+        "with gainsboro color as default", (tester) async {
       await tester.pumpApp(
         ProgressIndicator(progress: 0.5),
       );
@@ -26,8 +26,8 @@ void main() {
     });
 
     testWidgets(
-        'renders ColoredBox '
-        'with provided color', (tester) async {
+        "renders ColoredBox "
+        "with provided color", (tester) async {
       const color = Colors.orange;
 
       await tester.pumpApp(
@@ -42,7 +42,7 @@ void main() {
       );
     });
 
-    testWidgets('renders CircularProgressIndicator', (tester) async {
+    testWidgets("renders CircularProgressIndicator", (tester) async {
       const progress = 0.5;
 
       await tester.pumpApp(

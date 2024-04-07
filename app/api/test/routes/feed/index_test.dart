@@ -1,7 +1,7 @@
 import "dart:io";
 
 import "package:dart_frog/dart_frog.dart";
-import "package:flutter_news_example_api/api.dart";
+import "package:app_api/api.dart";
 import "package:mocktail/mocktail.dart";
 import "package:news_blocks/news_blocks.dart";
 import "package:test/test.dart";
@@ -10,20 +10,20 @@ import "../../../routes/api/v1/feed/index.dart" as route;
 
 class _MockFeed extends Mock implements Feed {}
 
-class _MockNewsDataSource extends Mock implements NewsDataSource {}
+class _MockFeedDataSource extends Mock implements FeedDataSource {}
 
 class _MockRequestContext extends Mock implements RequestContext {}
 
 void main() {
   group("GET /api/v1/feed", () {
-    late NewsDataSource newsDataSource;
+    late FeedDataSource newsDataSource;
 
     setUpAll(() {
       registerFallbackValue(Category.top);
     });
 
     setUp(() {
-      newsDataSource = _MockNewsDataSource();
+      newsDataSource = _MockFeedDataSource();
     });
 
     test("responds with a 200 on success.", () async {
@@ -43,7 +43,7 @@ void main() {
       final request = Request("GET", Uri.parse("http://127.0.0.1/"));
       final context = _MockRequestContext();
       when(() => context.request).thenReturn(request);
-      when(() => context.read<NewsDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
       final response = await route.onRequest(context);
       expect(response.statusCode, equals(HttpStatus.ok));
       expect(await response.json(), equals(expected.toJson()));
@@ -78,7 +78,7 @@ void main() {
       );
       final context = _MockRequestContext();
       when(() => context.request).thenReturn(request);
-      when(() => context.read<NewsDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
       final response = await route.onRequest(context);
       expect(response.statusCode, equals(HttpStatus.ok));
       expect(await response.json(), equals(expected.toJson()));

@@ -1,30 +1,30 @@
 import "dart:io";
 
+import "package:app_api/api.dart";
+import "package:app_api/src/data/in_memory_feed_data_source.dart";
 import "package:dart_frog/dart_frog.dart";
-import "package:flutter_news_example_api/api.dart";
-import "package:flutter_news_example_api/src/data/in_memory_news_data_source.dart";
 import "package:mocktail/mocktail.dart";
 import "package:test/test.dart";
 
 import "../../../routes/api/v1/search/relevant.dart" as route;
 
-class _MockNewsDataSource extends Mock implements NewsDataSource {}
+class _MockFeedDataSource extends Mock implements FeedDataSource {}
 
 class _MockRequestContext extends Mock implements RequestContext {}
 
 void main() {
   group("GET /api/v1/search/relevant", () {
-    late NewsDataSource newsDataSource;
+    late FeedDataSource newsDataSource;
 
     setUp(() {
-      newsDataSource = _MockNewsDataSource();
+      newsDataSource = _MockFeedDataSource();
     });
 
     test("responds with a 400 when query parameter is missing.", () async {
       final request = Request("GET", Uri.parse("http://127.0.0.1/"));
       final context = _MockRequestContext();
       when(() => context.request).thenReturn(request);
-      when(() => context.read<NewsDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
 
       final response = await route.onRequest(context);
       expect(response.statusCode, equals(HttpStatus.badRequest));
@@ -50,7 +50,7 @@ void main() {
       );
       final context = _MockRequestContext();
       when(() => context.request).thenReturn(request);
-      when(() => context.read<NewsDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
 
       final response = await route.onRequest(context);
       expect(response.statusCode, equals(HttpStatus.ok));

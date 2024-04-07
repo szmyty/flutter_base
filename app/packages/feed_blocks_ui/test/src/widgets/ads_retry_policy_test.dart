@@ -1,11 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter_test/flutter_test.dart';
-import 'package:news_blocks_ui/news_blocks_ui.dart';
+import "package:flutter_test/flutter_test.dart";
+import "package:feed_blocks_ui/feed_blocks_ui.dart";
 
 void main() {
-  group('AdsRetryPolicy', () {
-    test('has correct initial values', () {
+  group("AdsRetryPolicy", () {
+    test("has correct initial values", () {
       final adsRetryPolicy = AdsRetryPolicy();
       expect(adsRetryPolicy.maxRetryCount, equals(3));
       expect(
@@ -18,8 +18,8 @@ void main() {
       );
     });
 
-    group('getIntervalForRetry', () {
-      test('returns correct values', () {
+    group("getIntervalForRetry", () {
+      test("returns correct values", () {
         final adsRetryPolicy = AdsRetryPolicy();
         expect(
           adsRetryPolicy.getIntervalForRetry(0),

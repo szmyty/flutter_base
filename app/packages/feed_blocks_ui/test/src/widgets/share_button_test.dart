@@ -1,17 +1,17 @@
-import 'dart:async';
+import "dart:async";
 
-import 'package:flutter_test/flutter_test.dart';
-import 'package:news_blocks_ui/src/widgets/share_button.dart';
+import "package:flutter_test/flutter_test.dart";
+import "package:feed_blocks_ui/src/widgets/share_button.dart";
 
-import '../../helpers/helpers.dart';
+import "../../helpers/helpers.dart";
 
 void main() {
-  group('ShareButton', () {
-    testWidgets('calls onPress when tapped', (tester) async {
+  group("ShareButton", () {
+    testWidgets("calls onPress when tapped", (tester) async {
       final completer = Completer<void>();
       await tester.pumpContentThemedApp(
         ShareButton(
-          shareText: 'shareText',
+          shareText: "shareText",
           onPressed: completer.complete,
         ),
       );

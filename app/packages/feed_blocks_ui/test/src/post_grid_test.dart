@@ -1,30 +1,30 @@
 // ignore_for_file: unnecessary_const, prefer_const_constructors
 
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail_image_network/mocktail_image_network.dart';
-import 'package:news_blocks/news_blocks.dart';
-import 'package:news_blocks_ui/news_blocks_ui.dart';
+import "package:flutter/material.dart";
+import "package:flutter_test/flutter_test.dart";
+import "package:mocktail_image_network/mocktail_image_network.dart";
+import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks_ui/feed_blocks_ui.dart";
 
-import '../helpers/helpers.dart';
+import "../helpers/helpers.dart";
 
 void main() {
-  group('PostGrid', () {
+  group("PostGrid", () {
     final postGridTileBlock = PostGridTileBlock(
-      id: '842e3193-86d2-4069-a7e6-f769faa6f970',
+      id: "842e3193-86d2-4069-a7e6-f769faa6f970",
       category: PostCategory.science,
-      author: 'SciTechDaily',
+      author: "SciTechDaily",
       publishedAt: DateTime(2022, 5, 5),
       imageUrl:
-          'https://scitechdaily.com/images/Qubit-Platform-Single-Electron-on-Solid-Neon.jpg',
-      title: 'The Quest for an Ideal Quantum Bit: New Qubit Breakthrough Could '
-          'Revolutionize Quantum Computing',
+          "https://scitechdaily.com/images/Qubit-Platform-Single-Electron-on-Solid-Neon.jpg",
+      title: "The Quest for an Ideal Quantum Bit: New Qubit Breakthrough Could "
+          "Revolutionize Quantum Computing",
       action: NavigateToArticleAction(
-        articleId: '842e3193-86d2-4069-a7e6-f769faa6f970',
+        articleId: "842e3193-86d2-4069-a7e6-f769faa6f970",
       ),
     );
 
-    testWidgets('renders correctly 5 PostGridTiles', (tester) async {
+    testWidgets("renders correctly 5 PostGridTiles", (tester) async {
       final gridGroupBlock = PostGridGroupBlock(
         category: PostCategory.science,
         tiles: List.generate(5, (index) => postGridTileBlock),
@@ -36,7 +36,7 @@ void main() {
             slivers: [
               PostGrid(
                 gridGroupBlock: gridGroupBlock,
-                premiumText: 'Premium',
+                premiumText: "Premium",
               ),
             ],
           ),
@@ -51,7 +51,7 @@ void main() {
       expect(find.byType(PostMedium), findsNWidgets(4));
     });
 
-    testWidgets('renders correctly 1 PostGridTile', (tester) async {
+    testWidgets("renders correctly 1 PostGridTile", (tester) async {
       final gridGroupBlock = PostGridGroupBlock(
         category: PostCategory.science,
         tiles: [postGridTileBlock],
@@ -61,7 +61,7 @@ void main() {
         () async => tester.pumpContentThemedApp(
           CustomScrollView(
             slivers: [
-              PostGrid(gridGroupBlock: gridGroupBlock, premiumText: 'Premium'),
+              PostGrid(gridGroupBlock: gridGroupBlock, premiumText: "Premium"),
             ],
           ),
         ),
@@ -72,7 +72,7 @@ void main() {
       expect(find.byType(PostMedium), findsNothing);
     });
 
-    testWidgets('handles empty tiles list', (tester) async {
+    testWidgets("handles empty tiles list", (tester) async {
       final gridGroupBlock = PostGridGroupBlock(
         category: PostCategory.science,
         tiles: [],
@@ -82,7 +82,7 @@ void main() {
         () async => tester.pumpContentThemedApp(
           CustomScrollView(
             slivers: [
-              PostGrid(gridGroupBlock: gridGroupBlock, premiumText: 'Premium'),
+              PostGrid(gridGroupBlock: gridGroupBlock, premiumText: "Premium"),
             ],
           ),
         ),

@@ -4,7 +4,7 @@ import "dart:async";
 
 import "package:authentication_client/authentication_client.dart";
 import "package:deep_link_client/deep_link_client.dart";
-import "package:flutter_news_example_api/client.dart" as api;
+import "package:app_api/client.dart" as api;
 import "package:mocktail/mocktail.dart";
 import "package:package_info_client/package_info_client.dart";
 import "package:test/test.dart";

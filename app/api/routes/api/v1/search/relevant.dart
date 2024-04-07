@@ -1,7 +1,7 @@
 import "dart:io";
 
+import "package:app_api/api.dart";
 import "package:dart_frog/dart_frog.dart";
-import "package:flutter_news_example_api/api.dart";
 import "package:news_blocks/news_blocks.dart";
 
 Future<Response> onRequest(RequestContext context) async {
@@ -12,7 +12,7 @@ Future<Response> onRequest(RequestContext context) async {
   final term = context.request.url.queryParameters["q"];
   if (term == null) return Response(statusCode: HttpStatus.badRequest);
 
-  final newsDataSource = context.read<NewsDataSource>();
+  final newsDataSource = context.read<FeedDataSource>();
   final results = await Future.wait([
     newsDataSource.getRelevantArticles(term: term),
     newsDataSource.getRelevantTopics(term: term),

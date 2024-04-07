@@ -1,9 +1,9 @@
-import 'package:app_ui/app_ui.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart' as flutter_html;
+import "package:app_ui/app_ui.dart";
+import "package:flutter/material.dart";
+import "package:flutter_html/flutter_html.dart" as flutter_html;
 
-import 'package:news_blocks/news_blocks.dart';
-import 'package:url_launcher/url_launcher.dart';
+import "package:news_blocks/news_blocks.dart";
+import "package:url_launcher/url_launcher.dart";
 
 /// {@template html}
 /// A reusable html news block widget.
@@ -29,25 +29,25 @@ class Html extends StatelessWidget {
         },
         data: block.content,
         style: {
-          'p': flutter_html.Style.fromTextStyle(
+          "p": flutter_html.Style.fromTextStyle(
             theme.textTheme.bodyLarge!,
           ),
-          'h1': flutter_html.Style.fromTextStyle(
+          "h1": flutter_html.Style.fromTextStyle(
             theme.textTheme.displayLarge!,
           ),
-          'h2': flutter_html.Style.fromTextStyle(
+          "h2": flutter_html.Style.fromTextStyle(
             theme.textTheme.displayMedium!,
           ),
-          'h3': flutter_html.Style.fromTextStyle(
+          "h3": flutter_html.Style.fromTextStyle(
             theme.textTheme.displaySmall!,
           ),
-          'h4': flutter_html.Style.fromTextStyle(
+          "h4": flutter_html.Style.fromTextStyle(
             theme.textTheme.headlineMedium!,
           ),
-          'h5': flutter_html.Style.fromTextStyle(
+          "h5": flutter_html.Style.fromTextStyle(
             theme.textTheme.headlineSmall!,
           ),
-          'h6': flutter_html.Style.fromTextStyle(
+          "h6": flutter_html.Style.fromTextStyle(
             theme.textTheme.titleLarge!,
           ),
         },

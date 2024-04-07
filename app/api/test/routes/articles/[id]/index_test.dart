@@ -1,13 +1,13 @@
 import "dart:io";
 
 import "package:dart_frog/dart_frog.dart";
-import "package:flutter_news_example_api/api.dart";
+import "package:app_api/api.dart";
 import "package:mocktail/mocktail.dart";
 import "package:test/test.dart";
 
 import "../../../../routes/api/v1/articles/[id]/index.dart" as route;
 
-class _MockNewsDataSource extends Mock implements NewsDataSource {}
+class _MockFeedDataSource extends Mock implements FeedDataSource {}
 
 class _MockRequestContext extends Mock implements RequestContext {}
 
@@ -16,10 +16,10 @@ class _MockRequestUser extends Mock implements RequestUser {}
 void main() {
   const id = "__test_article_id__";
   group("GET /api/v1/articles/<id>", () {
-    late NewsDataSource newsDataSource;
+    late FeedDataSource newsDataSource;
 
     setUp(() {
-      newsDataSource = _MockNewsDataSource();
+      newsDataSource = _MockFeedDataSource();
     });
 
     test("responds with a 404 when article not found (isPremium)", () async {
@@ -29,7 +29,7 @@ void main() {
       final request = Request("GET", Uri.parse("http://127.0.0.1/"));
       final context = _MockRequestContext();
       when(() => context.request).thenReturn(request);
-      when(() => context.read<NewsDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
       final response = await route.onRequest(context, id);
       expect(response.statusCode, equals(HttpStatus.notFound));
     });
@@ -44,7 +44,7 @@ void main() {
       final request = Request("GET", Uri.parse("http://127.0.0.1/"));
       final context = _MockRequestContext();
       when(() => context.request).thenReturn(request);
-      when(() => context.read<NewsDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
       final response = await route.onRequest(context, id);
       expect(response.statusCode, equals(HttpStatus.notFound));
     });
@@ -76,7 +76,7 @@ void main() {
       final request = Request("GET", Uri.parse("http://127.0.0.1/"));
       final context = _MockRequestContext();
       when(() => context.request).thenReturn(request);
-      when(() => context.read<NewsDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
       final response = await route.onRequest(context, id);
       expect(response.statusCode, equals(HttpStatus.ok));
       expect(await response.json(), equals(expected.toJson()));
@@ -114,7 +114,7 @@ void main() {
       );
       final context = _MockRequestContext();
       when(() => context.request).thenReturn(request);
-      when(() => context.read<NewsDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
       when(() => context.read<RequestUser>()).thenReturn(RequestUser.anonymous);
       final response = await route.onRequest(context, id);
       expect(response.statusCode, equals(HttpStatus.ok));
@@ -148,7 +148,7 @@ void main() {
       final request = Request("GET", Uri.parse("http://127.0.0.1/"));
       final context = _MockRequestContext();
       when(() => context.request).thenReturn(request);
-      when(() => context.read<NewsDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
       when(() => context.read<RequestUser>()).thenReturn(RequestUser.anonymous);
       final response = await route.onRequest(context, id);
       expect(response.statusCode, equals(HttpStatus.ok));
@@ -189,7 +189,7 @@ void main() {
       when(() => requestUser.id).thenReturn(userId);
       when(() => requestUser.isAnonymous).thenReturn(false);
       when(() => context.request).thenReturn(request);
-      when(() => context.read<NewsDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
       when(() => context.read<RequestUser>()).thenReturn(requestUser);
       final response = await route.onRequest(context, id);
       expect(response.statusCode, equals(HttpStatus.ok));
@@ -231,7 +231,7 @@ void main() {
       when(() => requestUser.id).thenReturn(userId);
       when(() => requestUser.isAnonymous).thenReturn(false);
       when(() => context.request).thenReturn(request);
-      when(() => context.read<NewsDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
       when(() => context.read<RequestUser>()).thenReturn(requestUser);
       final response = await route.onRequest(context, id);
       expect(response.statusCode, equals(HttpStatus.ok));
@@ -273,7 +273,7 @@ void main() {
       when(() => requestUser.id).thenReturn(userId);
       when(() => requestUser.isAnonymous).thenReturn(false);
       when(() => context.request).thenReturn(request);
-      when(() => context.read<NewsDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
       when(() => context.read<RequestUser>()).thenReturn(requestUser);
       final response = await route.onRequest(context, id);
       expect(response.statusCode, equals(HttpStatus.ok));

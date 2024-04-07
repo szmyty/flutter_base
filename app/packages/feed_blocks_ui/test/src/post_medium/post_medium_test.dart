@@ -1,12 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail_image_network/mocktail_image_network.dart';
-import 'package:news_blocks/news_blocks.dart';
-import 'package:news_blocks_ui/news_blocks_ui.dart';
+import "package:flutter/material.dart";
+import "package:flutter_test/flutter_test.dart";
+import "package:mocktail_image_network/mocktail_image_network.dart";
+import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks_ui/feed_blocks_ui.dart";
 
-import '../../helpers/helpers.dart';
+import "../../helpers/helpers.dart";
 
 void main() {
   setUpAll(() {
@@ -14,21 +14,21 @@ void main() {
     setUpMockPathProvider();
   });
 
-  group('PostMedium', () {
-    const id = '82c49bf1-946d-4920-a801-302291f367b5';
+  group("PostMedium", () {
+    const id = "82c49bf1-946d-4920-a801-302291f367b5";
     const category = PostCategory.sports;
-    const author = 'Tom Dierberger';
+    const author = "Tom Dierberger";
     final publishedAt = DateTime(2022, 3, 10);
     const imageUrl =
-        'https://www.nbcsports.com/sites/rsnunited/files/styles/metatags_opengraph/public/article/hero/pat-bev-ja-morant-USA.jpg';
-    const title = 'No Man’s Sky’s new Outlaws update '
-        'lets players go full space pirate';
+        "https://www.nbcsports.com/sites/rsnunited/files/styles/metatags_opengraph/public/article/hero/pat-bev-ja-morant-USA.jpg";
+    const title = "No Man’s Sky’s new Outlaws update "
+        "lets players go full space pirate";
     const description =
-        'No Man’s Sky’s newest update, Outlaws, is now live, and it lets '
-        'players find and smuggle black market goods and evade the '
-        'authorities in outlaw systems.';
+        "No Man’s Sky’s newest update, Outlaws, is now live, and it lets "
+        "players find and smuggle black market goods and evade the "
+        "authorities in outlaw systems.";
 
-    testWidgets('renders correctly overlaid layout', (tester) async {
+    testWidgets("renders correctly overlaid layout", (tester) async {
       final postMediumBlock = PostMediumBlock(
         id: id,
         category: category,
@@ -48,11 +48,11 @@ void main() {
 
       expect(
         find.byType(PostMediumOverlaidLayout),
-        matchesGoldenFile('post_medium_overlaid_layout.png'),
+        matchesGoldenFile("post_medium_overlaid_layout.png"),
       );
     });
 
-    testWidgets('renders correctly description layout', (tester) async {
+    testWidgets("renders correctly description layout", (tester) async {
       final postMediumBlock = PostMediumBlock(
         id: id,
         category: category,
@@ -71,11 +71,11 @@ void main() {
 
       expect(
         find.byType(PostMediumDescriptionLayout),
-        matchesGoldenFile('post_medium_description_layout.png'),
+        matchesGoldenFile("post_medium_description_layout.png"),
       );
     });
 
-    testWidgets('onPressed is called with action when tapped', (tester) async {
+    testWidgets("onPressed is called with action when tapped", (tester) async {
       final action = NavigateToArticleAction(articleId: id);
       final actions = <BlockAction>[];
       final postMediumBlock = PostMediumBlock(

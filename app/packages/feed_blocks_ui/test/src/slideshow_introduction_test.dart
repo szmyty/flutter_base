@@ -1,24 +1,24 @@
 // ignore_for_file: unnecessary_const, prefer_const_constructors
 
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail_image_network/mocktail_image_network.dart';
-import 'package:news_blocks/news_blocks.dart';
-import 'package:news_blocks_ui/news_blocks_ui.dart';
-import 'package:news_blocks_ui/src/widgets/widgets.dart';
+import "package:flutter/material.dart";
+import "package:flutter_test/flutter_test.dart";
+import "package:mocktail_image_network/mocktail_image_network.dart";
+import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks_ui/feed_blocks_ui.dart";
+import "package:feed_blocks_ui/src/widgets/widgets.dart";
 
-import '../helpers/helpers.dart';
+import "../helpers/helpers.dart";
 
 void main() {
   const imageUrl =
-      'https://cdn.vox-cdn.com/thumbor/OTpmptgr7XcTVAJ27UBvIxl0vrg='
-      '/0x146:2040x1214/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset'
-      '/file/22049166/shollister_201117_4303_0003.0.jpg';
+      "https://cdn.vox-cdn.com/thumbor/OTpmptgr7XcTVAJ27UBvIxl0vrg="
+      "/0x146:2040x1214/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset"
+      "/file/22049166/shollister_201117_4303_0003.0.jpg";
 
-  group('SlideshowIntroduction', () {
-    testWidgets('renders title', (tester) async {
+  group("SlideshowIntroduction", () {
+    testWidgets("renders title", (tester) async {
       final block = SlideshowIntroductionBlock(
-        title: 'title',
+        title: "title",
         coverImageUrl: imageUrl,
       );
 
@@ -29,7 +29,7 @@ void main() {
               children: [
                 SlideshowIntroduction(
                   block: block,
-                  slideshowText: 'slideshowText',
+                  slideshowText: "slideshowText",
                 ),
               ],
             ),
@@ -40,9 +40,9 @@ void main() {
       expect(find.text(block.title), findsOneWidget);
     });
 
-    testWidgets('renders SlideshowCategory', (tester) async {
+    testWidgets("renders SlideshowCategory", (tester) async {
       final block = SlideshowIntroductionBlock(
-        title: 'title',
+        title: "title",
         coverImageUrl: imageUrl,
       );
 
@@ -53,7 +53,7 @@ void main() {
               children: [
                 SlideshowIntroduction(
                   block: block,
-                  slideshowText: 'slideshowText',
+                  slideshowText: "slideshowText",
                 ),
               ],
             ),
@@ -70,9 +70,9 @@ void main() {
       );
     });
 
-    testWidgets('renders cover image', (tester) async {
+    testWidgets("renders cover image", (tester) async {
       final block = SlideshowIntroductionBlock(
-        title: 'title',
+        title: "title",
         coverImageUrl: imageUrl,
       );
 
@@ -83,7 +83,7 @@ void main() {
               children: [
                 SlideshowIntroduction(
                   block: block,
-                  slideshowText: 'slideshowText',
+                  slideshowText: "slideshowText",
                 ),
               ],
             ),
@@ -100,13 +100,13 @@ void main() {
     });
 
     testWidgets(
-      'onPressed is called with action when tapped',
+      "onPressed is called with action when tapped",
       (tester) async {
-        final action = NavigateToArticleAction(articleId: 'articleId');
+        final action = NavigateToArticleAction(articleId: "articleId");
         final actions = <BlockAction>[];
 
         final block = SlideshowIntroductionBlock(
-          title: 'title',
+          title: "title",
           coverImageUrl: imageUrl,
           action: action,
         );
@@ -118,7 +118,7 @@ void main() {
                 children: [
                   SlideshowIntroduction(
                     block: block,
-                    slideshowText: 'slideshowText',
+                    slideshowText: "slideshowText",
                     onPressed: actions.add,
                   ),
                 ],

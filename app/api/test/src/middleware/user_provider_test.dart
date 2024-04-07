@@ -1,5 +1,5 @@
 import "package:dart_frog/dart_frog.dart";
-import "package:flutter_news_example_api/api.dart";
+import "package:app_api/api.dart";
 import "package:mocktail/mocktail.dart";
 import "package:test/test.dart";
 
@@ -14,7 +14,7 @@ void main() {
     setUp(() {
       context = _MockRequestContext();
 
-      when(() => context.provide<NewsDataSource>(any())).thenReturn(context);
+      when(() => context.provide<FeedDataSource>(any())).thenReturn(context);
       when(() => context.provide<RequestUser>(any())).thenReturn(context);
     });
 

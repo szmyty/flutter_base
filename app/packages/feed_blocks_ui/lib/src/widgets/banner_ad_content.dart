@@ -1,11 +1,11 @@
-import 'dart:async';
+import "dart:async";
 
-import 'package:app_ui/app_ui.dart';
-import 'package:flutter/material.dart' hide ProgressIndicator;
-import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:news_blocks/news_blocks.dart';
-import 'package:news_blocks_ui/src/widgets/widgets.dart';
-import 'package:platform/platform.dart' as platform;
+import "package:app_ui/app_ui.dart";
+import "package:flutter/material.dart" hide ProgressIndicator;
+import "package:google_mobile_ads/google_mobile_ads.dart";
+import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks_ui/src/widgets/widgets.dart";
+import "package:platform/platform.dart" as platform;
 
 /// {@template banner_ad_failed_to_load_exception}
 /// An exception thrown when loading a banner ad fails.
@@ -100,11 +100,11 @@ class BannerAdContent extends StatefulWidget {
 
   /// The Android test unit id of this banner ad.
   @visibleForTesting
-  static const androidTestUnitId = 'ca-app-pub-3940256099942544/6300978111';
+  static const androidTestUnitId = "ca-app-pub-3940256099942544/6300978111";
 
   /// The iOS test unit id of this banner ad.
   @visibleForTesting
-  static const iosTestUnitAd = 'ca-app-pub-3940256099942544/2934735716';
+  static const iosTestUnitAd = "ca-app-pub-3940256099942544/2934735716";
 
   /// The size values of this banner ad.
   ///
@@ -146,7 +146,7 @@ class _BannerAdContentState extends State<BannerAdContent>
     super.build(context);
     final adFailedToLoadTitle = widget.adFailedToLoadTitle;
     return SizedBox(
-      key: const Key('bannerAdContent_sizedBox'),
+      key: const Key("bannerAdContent_sizedBox"),
       width: (_adSize?.width ?? 0).toDouble(),
       height: (_adSize?.height ?? 0).toDouble(),
       child: Center(

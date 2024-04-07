@@ -1,6 +1,6 @@
-import 'package:app_ui/app_ui.dart';
-import 'package:flutter/material.dart';
-import 'package:news_blocks/news_blocks.dart';
+import "package:app_ui/app_ui.dart";
+import "package:flutter/material.dart";
+import "package:news_blocks/news_blocks.dart";
 
 /// {@template text_paragraph}
 /// A reusable text paragraph news block widget.

@@ -1,5 +1,5 @@
-import 'package:app_ui/app_ui.dart';
-import 'package:flutter/material.dart';
+import "package:app_ui/app_ui.dart";
+import "package:flutter/material.dart";
 
 /// {@template post_footer}
 /// A reusable footer of a post news block widget.
@@ -48,7 +48,7 @@ class PostFooter extends StatelessWidget {
               if (author != null && publishedAt != null) ...[
                 const WidgetSpan(child: SizedBox(width: AppSpacing.sm)),
                 const TextSpan(
-                  text: '•',
+                  text: "•",
                 ),
                 const WidgetSpan(child: SizedBox(width: AppSpacing.sm)),
               ],

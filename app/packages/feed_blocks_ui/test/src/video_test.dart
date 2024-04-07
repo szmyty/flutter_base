@@ -1,15 +1,15 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter_test/flutter_test.dart';
-import 'package:news_blocks/news_blocks.dart';
-import 'package:news_blocks_ui/news_blocks_ui.dart';
-import 'package:news_blocks_ui/src/widgets/widgets.dart';
-import 'package:video_player_platform_interface/video_player_platform_interface.dart';
+import "package:flutter_test/flutter_test.dart";
+import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks_ui/feed_blocks_ui.dart";
+import "package:feed_blocks_ui/src/widgets/widgets.dart";
+import "package:video_player_platform_interface/video_player_platform_interface.dart";
 
-import '../helpers/helpers.dart';
+import "../helpers/helpers.dart";
 
 void main() {
-  group('Video', () {
+  group("Video", () {
     setUp(
       () {
         final fakeVideoPlayerPlatform = FakeVideoPlayerPlatform();
@@ -17,8 +17,8 @@ void main() {
       },
     );
 
-    testWidgets('renders InlineVideo with correct video', (tester) async {
-      const block = VideoBlock(videoUrl: 'videoUrl');
+    testWidgets("renders InlineVideo with correct video", (tester) async {
+      const block = VideoBlock(videoUrl: "videoUrl");
 
       await tester.pumpApp(
         Video(block: block),
@@ -33,8 +33,8 @@ void main() {
       );
     });
 
-    testWidgets('renders ProgressIndicator when loading', (tester) async {
-      const block = VideoBlock(videoUrl: 'videoUrl');
+    testWidgets("renders ProgressIndicator when loading", (tester) async {
+      const block = VideoBlock(videoUrl: "videoUrl");
 
       await tester.pumpWidget(
         Video(block: block),

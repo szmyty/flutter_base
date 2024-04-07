@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:news_blocks_ui/src/generated/generated.dart';
-import 'package:video_player/video_player.dart';
+import "package:flutter/material.dart";
+import "package:feed_blocks_ui/src/generated/generated.dart";
+import "package:video_player/video_player.dart";
 
 /// Signature for [VideoPlayerController] builder.
 typedef VideoPlayerControllerBuilder = VideoPlayerController Function(
@@ -76,7 +76,7 @@ class _InlineVideoState extends State<InlineVideo> {
       aspectRatio: InlineVideo._aspectRatio,
       child: _controller.value.isInitialized
           ? GestureDetector(
-              key: const Key('inlineVideo_gestureDetector'),
+              key: const Key("inlineVideo_gestureDetector"),
               onTap: _isPlaying ? _controller.pause : _controller.play,
               child: ClipRRect(
                 child: Stack(

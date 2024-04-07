@@ -1,19 +1,19 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail_image_network/mocktail_image_network.dart';
-import 'package:news_blocks_ui/news_blocks_ui.dart';
-import 'package:news_blocks_ui/src/widgets/widgets.dart';
+import "package:flutter_test/flutter_test.dart";
+import "package:mocktail_image_network/mocktail_image_network.dart";
+import "package:feed_blocks_ui/feed_blocks_ui.dart";
+import "package:feed_blocks_ui/src/widgets/widgets.dart";
 
-import '../../helpers/helpers.dart';
+import "../../helpers/helpers.dart";
 
 void main() {
-  group('PostLargeImage', () {
+  group("PostLargeImage", () {
     testWidgets(
-        'renders InlineImage '
-        'when isContentOverlaid is false', (tester) async {
+        "renders InlineImage "
+        "when isContentOverlaid is false", (tester) async {
       final postLargeImage = PostLargeImage(
-        imageUrl: 'url',
+        imageUrl: "url",
         isContentOverlaid: false,
         isLocked: false,
       );
@@ -26,10 +26,10 @@ void main() {
     });
 
     testWidgets(
-        'renders OverlaidImage '
-        'when isContentOverlaid is true', (tester) async {
+        "renders OverlaidImage "
+        "when isContentOverlaid is true", (tester) async {
       final postLargeImage = PostLargeImage(
-        imageUrl: 'url',
+        imageUrl: "url",
         isContentOverlaid: true,
         isLocked: true,
       );
@@ -42,11 +42,11 @@ void main() {
     });
 
     testWidgets(
-        'renders LockIcon '
-        'when isLocked is true and '
-        'when isContentOverlaid is true', (tester) async {
+        "renders LockIcon "
+        "when isLocked is true and "
+        "when isContentOverlaid is true", (tester) async {
       final postLargeImage = PostLargeImage(
-        imageUrl: 'url',
+        imageUrl: "url",
         isLocked: true,
         isContentOverlaid: true,
       );
@@ -59,11 +59,11 @@ void main() {
     });
 
     testWidgets(
-        'renders LockIcon '
-        'when isLocked is true and '
-        'when isContentOverlaid is false', (tester) async {
+        "renders LockIcon "
+        "when isLocked is true and "
+        "when isContentOverlaid is false", (tester) async {
       final postLargeImage = PostLargeImage(
-        imageUrl: 'url',
+        imageUrl: "url",
         isLocked: true,
         isContentOverlaid: false,
       );
@@ -76,11 +76,11 @@ void main() {
     });
 
     testWidgets(
-        'does not render LockIcon '
-        'when isLocked is false and '
-        'when isContentOverlaid is true', (tester) async {
+        "does not render LockIcon "
+        "when isLocked is false and "
+        "when isContentOverlaid is true", (tester) async {
       final postLargeImage = PostLargeImage(
-        imageUrl: 'url',
+        imageUrl: "url",
         isLocked: false,
         isContentOverlaid: true,
       );
@@ -93,11 +93,11 @@ void main() {
     });
 
     testWidgets(
-        'does not render LockIcon '
-        'when isLocked is false and '
-        'when isContentOverlaid is false', (tester) async {
+        "does not render LockIcon "
+        "when isLocked is false and "
+        "when isContentOverlaid is false", (tester) async {
       final postLargeImage = PostLargeImage(
-        imageUrl: 'url',
+        imageUrl: "url",
         isLocked: false,
         isContentOverlaid: false,
       );

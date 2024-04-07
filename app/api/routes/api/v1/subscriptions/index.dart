@@ -1,7 +1,7 @@
 import "dart:io";
 
 import "package:dart_frog/dart_frog.dart";
-import "package:flutter_news_example_api/api.dart";
+import "package:app_api/api.dart";
 
 Future<Response> onRequest(RequestContext context) async {
   if (context.request.method == HttpMethod.post) return _onPostRequest(context);
@@ -18,7 +18,7 @@ Future<Response> _onPostRequest(RequestContext context) async {
     return Response(statusCode: HttpStatus.badRequest);
   }
 
-  await context.read<NewsDataSource>().createSubscription(
+  await context.read<FeedDataSource>().createSubscription(
         userId: user.id,
         subscriptionId: subscriptionId,
       );
@@ -27,7 +27,7 @@ Future<Response> _onPostRequest(RequestContext context) async {
 }
 
 Future<Response> _onGetRequest(RequestContext context) async {
-  final subscriptions = await context.read<NewsDataSource>().getSubscriptions();
+  final subscriptions = await context.read<FeedDataSource>().getSubscriptions();
   final response = SubscriptionsResponse(subscriptions: subscriptions);
   return Response.json(body: response);
 }

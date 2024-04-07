@@ -1,14 +1,14 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/rendering.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:news_blocks_ui/src/sliver_grid_custom_delegate.dart';
+import "package:flutter/rendering.dart";
+import "package:flutter_test/flutter_test.dart";
+import "package:feed_blocks_ui/src/sliver_grid_custom_delegate.dart";
 
 void main() {
-  group('HeaderGridTileLayout', () {
+  group("HeaderGridTileLayout", () {
     testWidgets(
-        'getMinChildIndexForScrollOffset when '
-        'super.getMinChildIndexForScrollOffset is 0', (tester) async {
+        "getMinChildIndexForScrollOffset when "
+        "super.getMinChildIndexForScrollOffset is 0", (tester) async {
       final headerTileLayout = HeaderGridTileLayout(
         crossAxisCount: 1,
         mainAxisStride: 14,
@@ -24,8 +24,8 @@ void main() {
     });
 
     testWidgets(
-        'getMinChildIndexForScrollOffset when '
-        'super.getMinChildIndexForScrollOffset is greater than 0',
+        "getMinChildIndexForScrollOffset when "
+        "super.getMinChildIndexForScrollOffset is greater than 0",
         (tester) async {
       final headerTileLayout = HeaderGridTileLayout(
         crossAxisCount: 1,
@@ -42,7 +42,7 @@ void main() {
     });
 
     testWidgets(
-        'getGeometryForChildIndex when index is equal to 0 (first element) ',
+        "getGeometryForChildIndex when index is equal to 0 (first element) ",
         (tester) async {
       final headerTileLayout = HeaderGridTileLayout(
         crossAxisCount: 1,
@@ -68,7 +68,7 @@ void main() {
       expect(geometry.crossAxisExtent, expectedGeometry.crossAxisExtent);
     });
 
-    testWidgets('getGeometryForChildIndex when index is not equal to 0',
+    testWidgets("getGeometryForChildIndex when index is not equal to 0",
         (tester) async {
       final headerTileLayout = HeaderGridTileLayout(
         crossAxisCount: 1,
@@ -93,7 +93,7 @@ void main() {
       expect(geometry.mainAxisExtent, expectedGeometry.mainAxisExtent);
       expect(geometry.crossAxisExtent, expectedGeometry.crossAxisExtent);
     });
-    testWidgets('computeMaxScrollOffset', (tester) async {
+    testWidgets("computeMaxScrollOffset", (tester) async {
       final headerTileLayout = HeaderGridTileLayout(
         crossAxisCount: 1,
         mainAxisStride: 14,

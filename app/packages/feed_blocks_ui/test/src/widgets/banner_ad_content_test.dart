@@ -1,17 +1,17 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'dart:async';
+import "dart:async";
 
-import 'package:fake_async/fake_async.dart';
-import 'package:flutter/material.dart' hide ProgressIndicator;
-import 'package:flutter_test/flutter_test.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:mocktail/mocktail.dart';
-import 'package:news_blocks/news_blocks.dart';
-import 'package:news_blocks_ui/src/widgets/widgets.dart';
-import 'package:platform/platform.dart';
+import "package:fake_async/fake_async.dart";
+import "package:flutter/material.dart" hide ProgressIndicator;
+import "package:flutter_test/flutter_test.dart";
+import "package:google_mobile_ads/google_mobile_ads.dart";
+import "package:mocktail/mocktail.dart";
+import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks_ui/src/widgets/widgets.dart";
+import "package:platform/platform.dart";
 
-import '../../helpers/helpers.dart';
+import "../../helpers/helpers.dart";
 
 class MockBannerAd extends Mock implements BannerAd {}
 
@@ -20,7 +20,7 @@ class MockPlatform extends Mock implements Platform {}
 class MockLoadAdError extends Mock implements LoadAdError {}
 
 void main() {
-  group('BannerAdContent', () {
+  group("BannerAdContent", () {
     late AdSize capturedSize;
     late String capturedAdUnitId;
     late BannerAdListener capturedListener;
@@ -53,8 +53,8 @@ void main() {
     });
 
     testWidgets(
-        'loads ad object correctly '
-        'on Android', (tester) async {
+        "loads ad object correctly "
+        "on Android", (tester) async {
       await tester.pumpApp(
         BannerAdContent(
           size: BannerAdSize.normal,
@@ -69,8 +69,8 @@ void main() {
     });
 
     testWidgets(
-        'loads ad object correctly '
-        'on iOS', (tester) async {
+        "loads ad object correctly "
+        "on iOS", (tester) async {
       when(() => platform.isIOS).thenReturn(true);
       when(() => platform.isAndroid).thenReturn(false);
 
@@ -94,9 +94,9 @@ void main() {
     });
 
     testWidgets(
-        'loads ad object correctly '
-        'with provided adUnitId', (tester) async {
-      const adUnitId = 'adUnitId';
+        "loads ad object correctly "
+        "with provided adUnitId", (tester) async {
+      const adUnitId = "adUnitId";
 
       await tester.pumpApp(
         BannerAdContent(
@@ -119,9 +119,9 @@ void main() {
     });
 
     testWidgets(
-        'renders ProgressIndicator '
-        'when ad is loading '
-        'and showProgressIndicator is true', (tester) async {
+        "renders ProgressIndicator "
+        "when ad is loading "
+        "and showProgressIndicator is true", (tester) async {
       await tester.pumpApp(
         BannerAdContent(
           size: BannerAdSize.normal,
@@ -135,9 +135,9 @@ void main() {
     });
 
     testWidgets(
-        'does not render ProgressIndicator '
-        'when ad is loading '
-        'and showProgressIndicator is false', (tester) async {
+        "does not render ProgressIndicator "
+        "when ad is loading "
+        "and showProgressIndicator is false", (tester) async {
       await tester.pumpApp(
         BannerAdContent(
           size: BannerAdSize.normal,
@@ -151,7 +151,7 @@ void main() {
       expect(find.byType(AdWidget), findsNothing);
     });
 
-    testWidgets('renders AdWidget when ad is loaded', (tester) async {
+    testWidgets("renders AdWidget when ad is loaded", (tester) async {
       await tester.runAsync(() async {
         ad = BannerAd(
           size: AdSize.banner,
@@ -176,7 +176,7 @@ void main() {
       });
     });
 
-    testWidgets('uses AdSize.banner for BannerAdSize.normal', (tester) async {
+    testWidgets("uses AdSize.banner for BannerAdSize.normal", (tester) async {
       const expectedSize = AdSize.banner;
       when(() => ad.size).thenReturn(expectedSize);
 
@@ -192,7 +192,7 @@ void main() {
       expect(
         find.byWidgetPredicate(
           (widget) =>
-              widget.key == Key('bannerAdContent_sizedBox') &&
+              widget.key == Key("bannerAdContent_sizedBox") &&
               widget is SizedBox &&
               widget.width == expectedSize.width &&
               widget.height == expectedSize.height,
@@ -201,7 +201,7 @@ void main() {
       );
     });
 
-    testWidgets('uses AdSize.mediumRectangle for BannerAdSize.large',
+    testWidgets("uses AdSize.mediumRectangle for BannerAdSize.large",
         (tester) async {
       const expectedSize = AdSize.mediumRectangle;
       when(() => ad.size).thenReturn(expectedSize);
@@ -218,7 +218,7 @@ void main() {
       expect(
         find.byWidgetPredicate(
           (widget) =>
-              widget.key == Key('bannerAdContent_sizedBox') &&
+              widget.key == Key("bannerAdContent_sizedBox") &&
               widget is SizedBox &&
               widget.width == expectedSize.width &&
               widget.height == expectedSize.height,
@@ -227,7 +227,7 @@ void main() {
       );
     });
 
-    testWidgets('uses AdSize(300, 600) for BannerAdSize.extraLarge',
+    testWidgets("uses AdSize(300, 600) for BannerAdSize.extraLarge",
         (tester) async {
       const expectedSize = AdSize(width: 300, height: 600);
       when(() => ad.size).thenReturn(expectedSize);
@@ -244,7 +244,7 @@ void main() {
       expect(
         find.byWidgetPredicate(
           (widget) =>
-              widget.key == Key('bannerAdContent_sizedBox') &&
+              widget.key == Key("bannerAdContent_sizedBox") &&
               widget is SizedBox &&
               widget.width == expectedSize.width &&
               widget.height == expectedSize.height,
@@ -253,7 +253,7 @@ void main() {
       );
     });
 
-    testWidgets('disposes ad object on widget dispose', (tester) async {
+    testWidgets("disposes ad object on widget dispose", (tester) async {
       await tester.pumpApp(
         BannerAdContent(
           size: BannerAdSize.normal,
@@ -269,11 +269,11 @@ void main() {
     });
 
     testWidgets(
-        'retries loading ad based on AdsRetryPolicy '
-        'and renders placeholder '
-        'when ad fails to load', (tester) async {
+        "retries loading ad based on AdsRetryPolicy "
+        "and renders placeholder "
+        "when ad fails to load", (tester) async {
       final fakeAsync = FakeAsync();
-      const adFailedToLoadTitle = 'adFailedToLoadTitle';
+      const adFailedToLoadTitle = "adFailedToLoadTitle";
       final adsRetryPolicy = AdsRetryPolicy();
 
       adBuilder = ({
@@ -285,7 +285,7 @@ void main() {
         Future.microtask(
           () => listener.onAdFailedToLoad!(
             ad,
-            LoadAdError(0, 'domain', 'message', null),
+            LoadAdError(0, "domain", "message", null),
           ),
         );
         return ad;
@@ -336,9 +336,9 @@ void main() {
     });
 
     testWidgets(
-        'throws BannerAdFailedToGetSizeException '
-        'for BannerAdSize.anchoredAdaptive '
-        'when ad size fails to load', (tester) async {
+        "throws BannerAdFailedToGetSizeException "
+        "for BannerAdSize.anchoredAdaptive "
+        "when ad size fails to load", (tester) async {
       await tester.pumpApp(
         BannerAdContent(
           size: BannerAdSize.anchoredAdaptive,

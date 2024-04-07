@@ -55,6 +55,7 @@ dependencies:
   flutter_animate: ^4.5.0
   flutter_bloc: ^8.1.5
   flutter_helper_utils: ^3.1.0
+  flutter_html: ^3.0.0-beta.2
   flutter_jailbreak_detection: ^1.10.0
   # flutter_localizations:
   #   sdk: flutter
@@ -76,6 +77,10 @@ dependencies:
   logger: ^2.2.0
   lottie: ^3.1.0
   network_info_plus: ^5.0.2
+  news_blocks:
+    path: api/packages/news_blocks
+  feed_blocks_ui:
+    path: packages/feed_blocks_ui
   package_info_client:
     path: packages/package_info_client
   package_info_plus: ^6.0.0
