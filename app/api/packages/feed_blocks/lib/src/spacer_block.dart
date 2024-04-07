@@ -30,7 +30,7 @@ enum Spacing {
 /// https://www.figma.com/file/RajSN6YbRqTuqvdKYtij3b/Google-News-Template-App-v3?node-id=358%3A18765
 /// {@endtemplate}
 @JsonSerializable()
-class SpacerBlock with EquatableMixin implements NewsBlock {
+class SpacerBlock with EquatableMixin implements FeedBlock {
   /// {@macro spacer_block}
   const SpacerBlock({
     required this.spacing,

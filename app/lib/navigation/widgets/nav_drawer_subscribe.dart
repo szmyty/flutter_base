@@ -1,7 +1,5 @@
 import "package:app_ui/app_ui.dart";
 import "package:flutter/material.dart";
-import "package:flutter_news_example/l10n/l10n.dart";
-import "package:flutter_news_example/subscriptions/subscriptions.dart";
 
 class NavDrawerSubscribe extends StatelessWidget {
   const NavDrawerSubscribe({super.key});
@@ -33,7 +31,8 @@ class NavDrawerSubscribeTitle extends StatelessWidget {
           vertical: AppSpacing.lg + AppSpacing.xxs,
         ),
         child: Text(
-          context.l10n.navigationDrawerSubscribeTitle,
+          "Navigation Drawer Subscribe Title",
+        //   context.l10n.navigationDrawerSubscribeTitle,
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
                 color: AppColors.highEmphasisPrimary,
               ),
@@ -54,7 +53,8 @@ class NavDrawerSubscribeSubtitle extends StatelessWidget {
         horizontal: AppSpacing.lg,
       ),
       child: Text(
-        context.l10n.navigationDrawerSubscribeSubtitle,
+        // context.l10n.navigationDrawerSubscribeSubtitle,
+        "Get unlimited access to premium content.",
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               color: AppColors.mediumEmphasisPrimary,
             ),
@@ -70,8 +70,10 @@ class NavDrawerSubscribeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppButton.redWine(
-      onPressed: () => showPurchaseSubscriptionDialog(context: context),
-      child: Text(context.l10n.subscribeButtonText),
+      onPressed: () => {},
+    //   onPressed: () => showPurchaseSubscriptionDialog(context: context),
+      child: const Text("Subscribe"),
+    //   child: Text(context.l10n.subscribeButtonText),
     );
   }
 }

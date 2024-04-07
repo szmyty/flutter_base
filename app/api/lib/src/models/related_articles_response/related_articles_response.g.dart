@@ -10,7 +10,7 @@ RelatedArticlesResponse _$RelatedArticlesResponseFromJson(
         Map<String, dynamic> json) =>
     RelatedArticlesResponse(
       relatedArticles:
-          const NewsBlocksConverter().fromJson(json['relatedArticles'] as List),
+          const FeedBlocksConverter().fromJson(json['relatedArticles'] as List),
       totalCount: json['totalCount'] as int,
     );
 
@@ -18,6 +18,6 @@ Map<String, dynamic> _$RelatedArticlesResponseToJson(
         RelatedArticlesResponse instance) =>
     <String, dynamic>{
       'relatedArticles':
-          const NewsBlocksConverter().toJson(instance.relatedArticles),
+          const FeedBlocksConverter().toJson(instance.relatedArticles),
       'totalCount': instance.totalCount,
     };

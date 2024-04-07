@@ -66,7 +66,7 @@ class CategoryFeed extends StatelessWidget {
 
   List<Widget> _buildSliverItems(
     BuildContext context,
-    List<NewsBlock> categoryFeed,
+    List<FeedBlock> categoryFeed,
     bool hasMoreNews,
     bool isFailure,
   ) {

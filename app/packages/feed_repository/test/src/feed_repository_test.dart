@@ -21,7 +21,7 @@ void main() {
       test(
           "returns FeedResponse "
           "from ApiClient.getFeed", () {
-        final feed = <NewsBlock>[
+        final feed = <FeedBlock>[
           SpacerBlock(spacing: Spacing.extraLarge),
           DividerHorizontalBlock(),
         ];

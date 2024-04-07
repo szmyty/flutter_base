@@ -27,8 +27,8 @@ class ArticleResponse extends Equatable {
   final String title;
 
   /// The article content blocks.
-  @NewsBlocksConverter()
-  final List<NewsBlock> content;
+  @FeedBlocksConverter()
+  final List<FeedBlock> content;
 
   /// The total number of available content blocks.
   final int totalCount;

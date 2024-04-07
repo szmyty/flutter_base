@@ -17,7 +17,7 @@ Future<Response> onRequest(RequestContext context) async {
     newsDataSource.getRelevantArticles(term: term),
     newsDataSource.getRelevantTopics(term: term),
   ]);
-  final articles = results.first as List<NewsBlock>;
+  final articles = results.first as List<FeedBlock>;
   final topics = results.last as List<String>;
   final response = RelevantSearchResponse(articles: articles, topics: topics);
   return Response.json(body: response);

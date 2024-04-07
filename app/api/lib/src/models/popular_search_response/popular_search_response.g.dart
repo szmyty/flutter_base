@@ -9,7 +9,7 @@ part of 'popular_search_response.dart';
 PopularSearchResponse _$PopularSearchResponseFromJson(
         Map<String, dynamic> json) =>
     PopularSearchResponse(
-      articles: const NewsBlocksConverter().fromJson(json['articles'] as List),
+      articles: const FeedBlocksConverter().fromJson(json['articles'] as List),
       topics:
           (json['topics'] as List<dynamic>).map((e) => e as String).toList(),
     );
@@ -17,6 +17,6 @@ PopularSearchResponse _$PopularSearchResponseFromJson(
 Map<String, dynamic> _$PopularSearchResponseToJson(
         PopularSearchResponse instance) =>
     <String, dynamic>{
-      'articles': const NewsBlocksConverter().toJson(instance.articles),
+      'articles': const FeedBlocksConverter().toJson(instance.articles),
       'topics': instance.topics,
     };

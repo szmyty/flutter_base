@@ -8,7 +8,7 @@ part "slide_block.g.dart";
 /// A block which represents a slide in a slideshow.
 /// {@endtemplate}
 @JsonSerializable()
-class SlideBlock with EquatableMixin implements NewsBlock {
+class SlideBlock with EquatableMixin implements FeedBlock {
   /// {@macro slide_block}
   const SlideBlock({
     required this.caption,

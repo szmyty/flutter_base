@@ -9,7 +9,7 @@ part "text_headline_block.g.dart";
 /// https://www.figma.com/file/RajSN6YbRqTuqvdKYtij3b/Google-News-Template-App-v3?node-id=35%3A5014
 /// {@endtemplate}
 @JsonSerializable()
-class TextHeadlineBlock with EquatableMixin implements NewsBlock {
+class TextHeadlineBlock with EquatableMixin implements FeedBlock {
   /// {@macro text_headline_block}
   const TextHeadlineBlock({
     required this.text,

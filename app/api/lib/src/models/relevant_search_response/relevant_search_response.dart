@@ -18,8 +18,8 @@ class RelevantSearchResponse extends Equatable {
       _$RelevantSearchResponseFromJson(json);
 
   /// The article content blocks.
-  @NewsBlocksConverter()
-  final List<NewsBlock> articles;
+  @FeedBlocksConverter()
+  final List<FeedBlock> articles;
 
   /// The associated relevant topics.
   final List<String> topics;

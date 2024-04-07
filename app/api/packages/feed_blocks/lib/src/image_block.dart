@@ -9,7 +9,7 @@ part "image_block.g.dart";
 /// https://www.figma.com/file/RajSN6YbRqTuqvdKYtij3b/Google-News-Template-App-v3?node-id=35%3A4874
 /// {@endtemplate}
 @JsonSerializable()
-class ImageBlock with EquatableMixin implements NewsBlock {
+class ImageBlock with EquatableMixin implements FeedBlock {
   /// {@macro image_block}
   const ImageBlock({
     required this.imageUrl,

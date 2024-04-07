@@ -2,22 +2,22 @@ import "package:json_annotation/json_annotation.dart";
 import "package:feed_blocks/feed_blocks.dart";
 
 /// {@template feed_blocks_converter}
-/// A [JsonConverter] that supports (de)serializing a `List<NewsBlock>`.
+/// A [JsonConverter] that supports (de)serializing a `List<FeedBlock>`.
 /// {@endtemplate}
-class NewsBlocksConverter
-    implements JsonConverter<List<NewsBlock>, List<dynamic>> {
+class FeedBlocksConverter
+    implements JsonConverter<List<FeedBlock>, List<dynamic>> {
   /// {@macro feed_blocks_converter}
-  const NewsBlocksConverter();
+  const FeedBlocksConverter();
 
   @override
-  List<Map<String, dynamic>> toJson(List<NewsBlock> blocks) {
+  List<Map<String, dynamic>> toJson(List<FeedBlock> blocks) {
     return blocks.map((b) => b.toJson()).toList();
   }
 
   @override
-  List<NewsBlock> fromJson(List<dynamic> jsonString) {
+  List<FeedBlock> fromJson(List<dynamic> jsonString) {
     return jsonString
-        .map((dynamic e) => NewsBlock.fromJson(e as Map<String, dynamic>))
+        .map((dynamic e) => FeedBlock.fromJson(e as Map<String, dynamic>))
         .toList();
   }
 }

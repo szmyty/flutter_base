@@ -24,7 +24,7 @@ enum BannerAdSize {
 /// https://www.figma.com/file/RajSN6YbRqTuqvdKYtij3b/Google-News-Template-App-v3?node-id=35%3A5151
 /// {@endtemplate}
 @JsonSerializable()
-class BannerAdBlock with EquatableMixin implements NewsBlock {
+class BannerAdBlock with EquatableMixin implements FeedBlock {
   /// {@macro banner_ad_block}
   const BannerAdBlock({
     required this.size,

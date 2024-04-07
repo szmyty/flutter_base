@@ -9,7 +9,7 @@ part "divider_horizontal_block.g.dart";
 /// https://www.figma.com/file/RajSN6YbRqTuqvdKYtij3b/Google-News-Template-App-v3?node-id=355%3A15499
 /// {@endtemplate}
 @JsonSerializable()
-class DividerHorizontalBlock with EquatableMixin implements NewsBlock {
+class DividerHorizontalBlock with EquatableMixin implements FeedBlock {
   /// {@macro divider_horizontal_block}
   const DividerHorizontalBlock({
     this.type = DividerHorizontalBlock.identifier,

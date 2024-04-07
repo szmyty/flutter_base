@@ -39,11 +39,11 @@ abstract class FeedDataSource {
   Future<List<String>> getRelevantTopics({required String term});
 
   /// Returns a list of current popular article blocks.
-  Future<List<NewsBlock>> getPopularArticles();
+  Future<List<FeedBlock>> getPopularArticles();
 
   /// Returns a list of relevant article blocks
   /// based on the provided [term].
-  Future<List<NewsBlock>> getRelevantArticles({required String term});
+  Future<List<FeedBlock>> getRelevantArticles({required String term});
 
   /// Returns [RelatedArticles] for the provided article [id].
   ///

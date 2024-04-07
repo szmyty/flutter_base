@@ -21,8 +21,8 @@ class RelatedArticlesResponse extends Equatable {
       _$RelatedArticlesResponseFromJson(json);
 
   /// The article content blocks.
-  @NewsBlocksConverter()
-  final List<NewsBlock> relatedArticles;
+  @FeedBlocksConverter()
+  final List<FeedBlock> relatedArticles;
 
   /// The total number of available content blocks.
   final int totalCount;

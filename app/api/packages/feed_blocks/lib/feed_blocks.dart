@@ -13,7 +13,7 @@ export "src/block_action_converter.dart" show BlockActionConverter;
 export "src/category.dart" show Category;
 export "src/divider_horizontal_block.dart" show DividerHorizontalBlock;
 export "src/feed_block.dart" show FeedBlock;
-export "src/feed_blocks_converter.dart" show NewsBlocksConverter;
+export "src/feed_blocks_converter.dart" show FeedBlocksConverter;
 export "src/html_block.dart" show HtmlBlock;
 export "src/image_block.dart" show ImageBlock;
 export "src/newsletter_block.dart" show NewsletterBlock;

@@ -3,7 +3,7 @@
 import "package:feed_blocks/feed_blocks.dart";
 import "package:test/test.dart";
 
-class CustomBlock extends NewsBlock {
+class CustomBlock extends FeedBlock {
   CustomBlock({super.type = "__custom_block__"});
 
   @override
@@ -11,36 +11,36 @@ class CustomBlock extends NewsBlock {
 }
 
 void main() {
-  group("NewsBlock", () {
+  group("FeedBlock", () {
     test("can be extended", () {
       expect(CustomBlock.new, returnsNormally);
     });
 
     group("fromJson", () {
       test("returns UnknownBlock when type is missing", () {
-        expect(NewsBlock.fromJson(<String, dynamic>{}), equals(UnknownBlock()));
+        expect(FeedBlock.fromJson(<String, dynamic>{}), equals(UnknownBlock()));
       });
 
       test("returns UnknownBlock when type is unrecognized", () {
         expect(
-          NewsBlock.fromJson(<String, dynamic>{"type": "unrecognized"}),
+          FeedBlock.fromJson(<String, dynamic>{"type": "unrecognized"}),
           equals(UnknownBlock()),
         );
       });
 
       test("returns SectionHeaderBlock", () {
         final block = SectionHeaderBlock(title: "Example");
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
 
       test("returns DividerHorizontalBlock", () {
         final block = DividerHorizontalBlock();
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
 
       test("returns SpacerBlock", () {
         final block = SpacerBlock(spacing: Spacing.medium);
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
 
       test("returns TextCaptionBlock", () {
@@ -48,32 +48,32 @@ void main() {
           text: "Text caption",
           color: TextCaptionColor.light,
         );
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
 
       test("returns TextHeadlineBlock", () {
         final block = TextHeadlineBlock(text: "Text Headline");
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
 
       test("returns TextLeadParagraphBlock", () {
         final block = TextLeadParagraphBlock(text: "Text Lead Paragraph");
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
 
       test("returns TextParagraphBlock", () {
         final block = TextParagraphBlock(text: "Text Paragraph");
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
 
       test("returns ImageBlock", () {
         final block = ImageBlock(imageUrl: "imageUrl");
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
 
       test("returns VideoBlock", () {
         final block = VideoBlock(videoUrl: "videoUrl");
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
 
       test("returns VideoIntroductionBlock", () {
@@ -82,7 +82,7 @@ void main() {
           title: "title",
           videoUrl: "videoUrl",
         );
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
 
       test("returns ArticleIntroductionBlock", () {
@@ -93,7 +93,7 @@ void main() {
           imageUrl: "imageUrl",
           title: "title",
         );
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
 
       test("returns PostLargeBlock", () {
@@ -106,7 +106,7 @@ void main() {
           title: "title",
         );
 
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
 
       test("returns PostMediumBlock", () {
@@ -119,7 +119,7 @@ void main() {
           title: "title",
         );
 
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
 
       test("returns PostSmallBlock", () {
@@ -132,7 +132,7 @@ void main() {
           title: "title",
         );
 
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
 
       test("returns PostGridGroupBlock", () {
@@ -150,7 +150,7 @@ void main() {
           ],
         );
 
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
 
       test("returns PostGridTileBlock", () {
@@ -163,25 +163,25 @@ void main() {
           title: "title",
         );
 
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
 
       test("returns NewsletterBlock", () {
         final block = NewsletterBlock();
 
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
 
       test("returns BannerAdBlock", () {
         final block = BannerAdBlock(
           size: BannerAdSize.normal,
         );
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
 
       test("returns HtmlBlock", () {
         final block = HtmlBlock(content: "<p>hello</p>");
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
 
       test("returns SlideBlock", () {
@@ -191,7 +191,7 @@ void main() {
           photoCredit: "photoCredit",
           description: "description",
         );
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
 
       test("returns SlideshowBlock", () {
@@ -202,7 +202,7 @@ void main() {
           description: "description",
         );
         final block = SlideshowBlock(title: "title", slides: [slide]);
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
 
       test("returns SlideshowIntroductionBlock", () {
@@ -210,7 +210,7 @@ void main() {
           title: "title",
           coverImageUrl: "coverImageUrl",
         );
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
 
       test("returns TrendingStoryBlock", () {
@@ -223,7 +223,7 @@ void main() {
           title: "title",
         );
         final block = TrendingStoryBlock(content: content);
-        expect(NewsBlock.fromJson(block.toJson()), equals(block));
+        expect(FeedBlock.fromJson(block.toJson()), equals(block));
       });
     });
   });

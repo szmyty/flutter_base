@@ -14,14 +14,14 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      items: [
+      items: const [
         BottomNavigationBarItem(
-          icon: const Icon(Icons.home_outlined),
+          icon: Icon(Icons.home_outlined),
           label: "test",
         //   label: context.l10n.bottomNavBarTopStories,
         ),
         BottomNavigationBarItem(
-          icon: const Icon(
+          icon: Icon(
             Icons.search,
             key: Key("bottomNavBar_search"),
           ),

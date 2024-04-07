@@ -20,8 +20,8 @@ class RelatedArticles extends Equatable {
       _$RelatedArticlesFromJson(json);
 
   /// The list of news blocks for the associated related articles (paginated).
-  @NewsBlocksConverter()
-  final List<NewsBlock> blocks;
+  @FeedBlocksConverter()
+  final List<FeedBlock> blocks;
 
   /// The total number of blocks for the related articles.
   final int totalBlocks;

@@ -8,7 +8,7 @@ part "html_block.g.dart";
 /// A block which represents HTML content.
 /// {@endtemplate}
 @JsonSerializable()
-class HtmlBlock with EquatableMixin implements NewsBlock {
+class HtmlBlock with EquatableMixin implements FeedBlock {
   /// {@macro html_block}
   const HtmlBlock({
     required this.content,

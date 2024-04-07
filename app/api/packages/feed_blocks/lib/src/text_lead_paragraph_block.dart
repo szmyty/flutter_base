@@ -9,7 +9,7 @@ part "text_lead_paragraph_block.g.dart";
 /// https://www.figma.com/file/RajSN6YbRqTuqvdKYtij3b/Google-News-Template-App-v3?node-id=35%3A5002
 /// {@endtemplate}
 @JsonSerializable()
-class TextLeadParagraphBlock with EquatableMixin implements NewsBlock {
+class TextLeadParagraphBlock with EquatableMixin implements FeedBlock {
   /// {@macro text_lead_paragraph_block}
   const TextLeadParagraphBlock({
     required this.text,

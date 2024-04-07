@@ -17,8 +17,8 @@ class FeedResponse extends Equatable {
       _$FeedResponseFromJson(json);
 
   /// The associated feed (composition of blocks).
-  @NewsBlocksConverter()
-  final List<NewsBlock> feed;
+  @FeedBlocksConverter()
+  final List<FeedBlock> feed;
 
   /// The total number of available blocks.
   final int totalCount;

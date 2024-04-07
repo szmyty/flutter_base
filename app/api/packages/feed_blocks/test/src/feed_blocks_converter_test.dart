@@ -4,10 +4,10 @@ import "package:feed_blocks/feed_blocks.dart";
 import "package:test/test.dart";
 
 void main() {
-  group("NewsBlocksConverter", () {
-    test("can (de)serialize List<NewsBlock>", () {
-      final converter = NewsBlocksConverter();
-      final newsBlocks = <NewsBlock>[
+  group("FeedBlocksConverter", () {
+    test("can (de)serialize List<FeedBlock>", () {
+      final converter = FeedBlocksConverter();
+      final newsBlocks = <FeedBlock>[
         SectionHeaderBlock(title: "title"),
         DividerHorizontalBlock(),
         SpacerBlock(spacing: Spacing.medium),

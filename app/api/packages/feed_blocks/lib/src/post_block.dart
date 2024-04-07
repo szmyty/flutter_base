@@ -4,7 +4,7 @@ import "package:feed_blocks/feed_blocks.dart";
 /// {@template post_block}
 /// An abstract block which represents a post block.
 /// {@endtemplate}
-abstract class PostBlock with EquatableMixin implements NewsBlock {
+abstract class PostBlock with EquatableMixin implements FeedBlock {
   /// {@macro post_block}
   const PostBlock({
     required this.id,

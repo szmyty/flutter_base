@@ -9,7 +9,7 @@ part "video_introduction_block.g.dart";
 /// https://www.figma.com/file/RajSN6YbRqTuqvdKYtij3b/Google-News-Template-App-v3?node-id=391%3A18167
 /// {@endtemplate}
 @JsonSerializable()
-class VideoIntroductionBlock with EquatableMixin implements NewsBlock {
+class VideoIntroductionBlock with EquatableMixin implements FeedBlock {
   /// {@macro video_introduction_block}
   const VideoIntroductionBlock({
     required this.category,

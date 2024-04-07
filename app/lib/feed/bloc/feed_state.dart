@@ -24,7 +24,7 @@ class FeedState extends Equatable {
       _$FeedStateFromJson(json);
 
   final FeedStatus status;
-  final Map<Category, List<NewsBlock>> feed;
+  final Map<Category, List<FeedBlock>> feed;
   final Map<Category, bool> hasMoreNews;
 
   @override
@@ -36,7 +36,7 @@ class FeedState extends Equatable {
 
   FeedState copyWith({
     FeedStatus? status,
-    Map<Category, List<NewsBlock>>? feed,
+    Map<Category, List<FeedBlock>>? feed,
     Map<Category, bool>? hasMoreNews,
   }) {
     return FeedState(

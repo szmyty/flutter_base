@@ -9,7 +9,7 @@ part "video_block.g.dart";
 /// https://www.figma.com/file/RajSN6YbRqTuqvdKYtij3b/Google-News-Template-App-v3?node-id=812%3A31908
 /// {@endtemplate}
 @JsonSerializable()
-class VideoBlock with EquatableMixin implements NewsBlock {
+class VideoBlock with EquatableMixin implements FeedBlock {
   /// {@macro video_block}
   const VideoBlock({
     required this.videoUrl,

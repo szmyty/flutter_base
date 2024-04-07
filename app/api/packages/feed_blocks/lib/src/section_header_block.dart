@@ -9,7 +9,7 @@ part "section_header_block.g.dart";
 /// https://www.figma.com/file/RajSN6YbRqTuqvdKYtij3b/Google-News-Template-App-v3?node-id=179%3A13701
 /// {@endtemplate}
 @JsonSerializable()
-class SectionHeaderBlock with EquatableMixin implements NewsBlock {
+class SectionHeaderBlock with EquatableMixin implements FeedBlock {
   /// {@macro section_header_block}
   const SectionHeaderBlock({
     required this.title,

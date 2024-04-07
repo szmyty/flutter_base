@@ -9,7 +9,7 @@ part "post_grid_group_block.g.dart";
 /// https://www.figma.com/file/RajSN6YbRqTuqvdKYtij3b/Google-News-Template-App-v3?node-id=391%3A18875
 /// {@endtemplate}
 @JsonSerializable()
-class PostGridGroupBlock with EquatableMixin implements NewsBlock {
+class PostGridGroupBlock with EquatableMixin implements FeedBlock {
   /// {@macro post_grid_group_block}
   const PostGridGroupBlock({
     required this.category,
@@ -28,7 +28,7 @@ class PostGridGroupBlock with EquatableMixin implements NewsBlock {
   final PostCategory category;
 
   /// The associated list of [PostGridTileBlock] tiles.
-  @NewsBlocksConverter()
+  @FeedBlocksConverter()
   final List<PostGridTileBlock> tiles;
 
   @override

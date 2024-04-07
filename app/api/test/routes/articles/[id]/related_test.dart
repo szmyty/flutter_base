@@ -24,7 +24,7 @@ void main() {
     });
 
     test("returns a 200 on success", () async {
-      final blocks = <NewsBlock>[];
+      final blocks = <FeedBlock>[];
       final relatedArticles = _MockRelatedArticles();
       when(() => relatedArticles.blocks).thenReturn(blocks);
       when(() => relatedArticles.totalBlocks).thenReturn(blocks.length);
@@ -53,7 +53,7 @@ void main() {
     test("parses limit and offset correctly", () async {
       const limit = 42;
       const offset = 7;
-      final blocks = <NewsBlock>[];
+      final blocks = <FeedBlock>[];
       final relatedArticles = _MockRelatedArticles();
       when(() => relatedArticles.blocks).thenReturn(blocks);
       when(() => relatedArticles.totalBlocks).thenReturn(blocks.length);

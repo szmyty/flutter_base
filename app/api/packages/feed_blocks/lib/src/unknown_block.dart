@@ -8,7 +8,7 @@ part "unknown_block.g.dart";
 /// A block which represents an unknown type.
 /// {@endtemplate}
 @JsonSerializable()
-class UnknownBlock with EquatableMixin implements NewsBlock {
+class UnknownBlock with EquatableMixin implements FeedBlock {
   /// {@macro unknown_block}
   const UnknownBlock({this.type = UnknownBlock.identifier});
 

@@ -9,7 +9,7 @@ part "trending_story_block.g.dart";
 /// https://www.figma.com/file/RajSN6YbRqTuqvdKYtij3b/Google-News-Template-App-v3?node-id=13%3A3140
 /// {@endtemplate}
 @JsonSerializable()
-class TrendingStoryBlock with EquatableMixin implements NewsBlock {
+class TrendingStoryBlock with EquatableMixin implements FeedBlock {
   /// {@macro trending_story_block}
   const TrendingStoryBlock({
     required this.content,

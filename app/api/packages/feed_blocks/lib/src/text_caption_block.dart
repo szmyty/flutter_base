@@ -18,7 +18,7 @@ enum TextCaptionColor {
 /// https://www.figma.com/file/RajSN6YbRqTuqvdKYtij3b/Google-News-Template-App-v3?node-id=365%3A35853
 /// {@endtemplate}
 @JsonSerializable()
-class TextCaptionBlock with EquatableMixin implements NewsBlock {
+class TextCaptionBlock with EquatableMixin implements FeedBlock {
   /// {@macro text_caption_block}
   const TextCaptionBlock({
     required this.text,
