@@ -26,13 +26,20 @@ enum AppStatus {
         this == AppStatus.authenticated || this == AppStatus.onboardingRequired;
 }
 
+/// Represents the state of the application.
+///
+/// [AppState] contains information about the current status of the
+/// application, the authenticated user (if any), and whether a login
+/// overlay should be displayed.
 class AppState extends Equatable {
+  /// Constructs an instance of [AppState].
   const AppState({
     required this.status,
     this.user = User.anonymous,
     this.showLoginOverlay = false,
   });
 
+  /// Constructs an instance of [AppState] representing an authenticated state.
   const AppState.authenticated(
     User user,
   ) : this(
@@ -40,18 +47,30 @@ class AppState extends Equatable {
           user: user,
         );
 
+  /// Constructs an instance of [AppState] representing a state where onboarding
+  /// is required.
   const AppState.onboardingRequired(User user)
       : this(
           status: AppStatus.onboardingRequired,
           user: user,
         );
 
+ /// Constructs an instance of [AppState] representing an unauthenticated state.
   const AppState.unauthenticated() : this(status: AppStatus.unauthenticated);
 
+  /// The current status of the application.
   final AppStatus status;
+
+  /// The authenticated user. Defaults to [User.anonymous] if not provided.
   final User user;
+
+  /// Indicates whether a login overlay should be displayed.
   final bool showLoginOverlay;
-  // TODO(me): bool get isUserSubscribed => user.subscriptionPlan != SubscriptionPlan.none;
+
+  /// Returns `true` if the user is subscribed; otherwise, returns `false`.
+  ///
+  /// TODO(me): This is a placeholder method. The actual implementation should check
+  /// the subscription status of the user.
   bool get isUserSubscribed => true;
 
   @override
@@ -62,6 +81,8 @@ class AppState extends Equatable {
         isUserSubscribed,
       ];
 
+  /// Creates a copy of this [AppState] with the given fields replaced
+  /// with the new values.
   AppState copyWith({
     AppStatus? status,
     User? user,
