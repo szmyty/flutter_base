@@ -1,3 +1,4 @@
+import "package:app/feed/bloc/feed_bloc.dart";
 import "package:app/home/cubit/home_cubit.dart";
 import "package:app/home/view/home_view.dart";
 import "package:feed_repository/feed_repository.dart";

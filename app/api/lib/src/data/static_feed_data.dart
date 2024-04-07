@@ -1,4 +1,4 @@
-part of "in_memory_news_data_source.dart";
+part of "in_memory_feed_data_source.dart";
 
 /// List of available subscriptions.
 const subscriptions = <Subscription>[

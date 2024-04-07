@@ -1,12 +1,12 @@
-import "package:flutter_news_example_api/api.dart";
+import "package:app_api/api.dart";
 import "package:news_blocks/news_blocks.dart";
 
-/// {@template news_data_source}
+/// {@template feed_data_source}
 /// An interface for a news content data source.
 /// {@endtemplate}
-abstract class NewsDataSource {
-  /// {@macro news_data_source}
-  const NewsDataSource();
+abstract class FeedDataSource {
+  /// {@macro feed_data_source}
+  const FeedDataSource();
 
   /// Returns a news [Article] for the provided article [id].
   ///

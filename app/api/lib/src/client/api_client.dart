@@ -1,6 +1,7 @@
 import "dart:convert";
 import "dart:io";
 
+import "package:app_api/api.dart";
 import "package:http/http.dart" as http;
 
 /// {@template api_malformed_response}
@@ -76,79 +77,6 @@ class ApiClient {
   final String _baseUrl;
   final http.Client _httpClient;
   final TokenProvider _tokenProvider;
-
-  /// GET /api/v1/articles/<id>
-  /// Requests article content metadata.
-  ///
-  /// Supported parameters:
-  /// * [id] - Article id for which content is requested.
-  /// * [limit] - The number of results to return.
-  /// * [offset] - The (zero-based) offset of the first item
-  /// in the collection to return.
-  /// * [preview] - Whether to return a preview of the article.
-  Future<ArticleResponse> getArticle({
-    required String id,
-    int? limit,
-    int? offset,
-    bool preview = false,
-  }) async {
-    final uri = Uri.parse("$_baseUrl/api/v1/articles/$id").replace(
-      queryParameters: <String, String>{
-        if (limit != null) "limit": "$limit",
-        if (offset != null) "offset": "$offset",
-        "preview": "$preview",
-      },
-    );
-    final response = await _httpClient.get(
-      uri,
-      headers: await _getRequestHeaders(),
-    );
-    final body = response.json();
-
-    if (response.statusCode != HttpStatus.ok) {
-      throw ApiRequestFailure(
-        body: body,
-        statusCode: response.statusCode,
-      );
-    }
-
-    return ArticleResponse.fromJson(body);
-  }
-
-  /// GET /api/v1/articles/<id>/related
-  /// Requests related articles.
-  ///
-  /// Supported parameters:
-  /// * [id] - Article id for which related content is requested.
-  /// * [limit] - The number of results to return.
-  /// * [offset] - The (zero-based) offset of the first item
-  /// in the collection to return.
-  Future<RelatedArticlesResponse> getRelatedArticles({
-    required String id,
-    int? limit,
-    int? offset,
-  }) async {
-    final uri = Uri.parse("$_baseUrl/api/v1/articles/$id/related").replace(
-      queryParameters: <String, String>{
-        if (limit != null) "limit": "$limit",
-        if (offset != null) "offset": "$offset",
-      },
-    );
-    final response = await _httpClient.get(
-      uri,
-      headers: await _getRequestHeaders(),
-    );
-    final body = response.json();
-
-    if (response.statusCode != HttpStatus.ok) {
-      throw ApiRequestFailure(
-        body: body,
-        statusCode: response.statusCode,
-      );
-    }
-
-    return RelatedArticlesResponse.fromJson(body);
-  }
 
   /// GET /api/v1/feed
   /// Requests news feed metadata.

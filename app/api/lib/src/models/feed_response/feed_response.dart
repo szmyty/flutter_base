@@ -5,7 +5,7 @@ import "package:news_blocks/news_blocks.dart";
 part "feed_response.g.dart";
 
 /// {@template feed_response}
-/// A news feed response object which contains news feed metadata.
+/// A feed response object which contains feed metadata.
 /// {@endtemplate}
 @JsonSerializable()
 class FeedResponse extends Equatable {

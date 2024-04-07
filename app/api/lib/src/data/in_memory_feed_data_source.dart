@@ -1,17 +1,17 @@
 import "dart:math" as math;
 
+import "package:app_api/api.dart";
+import "package:app_api/src/data/models/models.dart";
 import "package:collection/collection.dart";
-import "package:flutter_news_example_api/api.dart";
-import "package:flutter_news_example_api/src/data/models/models.dart";
 import "package:news_blocks/news_blocks.dart";
 
-part "static_news_data.dart";
+part "static_feed_data.dart";
 
 /// {@template in_memory_news_data_source}
-/// An implementation of [NewsDataSource] which
+/// An implementation of [FeedDataSource] which
 /// is powered by in-memory news content.
 /// {@endtemplate}
-class InMemoryNewsDataSource implements NewsDataSource {
+class InMemoryNewsDataSource implements FeedDataSource {
   /// {@macro in_memory_news_data_store}
   InMemoryNewsDataSource() : _userSubscriptions = <String, String>{};
 

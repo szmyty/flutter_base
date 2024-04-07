@@ -1,7 +1,8 @@
-/// Flutter News Example API Server-Side Library
+/// App API Server-Side Library
 library api;
 
-export "src/data/in_memory_news_data_source.dart" show InMemoryNewsDataSource;
+export "src/data/feed_data_source.dart" show FeedDataSource;
+export "src/data/in_memory_feed_data_source.dart" show InMemoryNewsDataSource;
 export "src/data/models/models.dart"
     show
         Article,
@@ -12,9 +13,8 @@ export "src/data/models/models.dart"
         SubscriptionCost,
         SubscriptionPlan,
         User;
-export "src/data/news_data_source.dart" show NewsDataSource;
 export "src/middleware/middleware.dart"
-    show RequestUser, newsDataSourceProvider, userProvider;
+    show RequestUser, feedDataSourceProvider, userProvider;
 export "src/models/models.dart"
     show
         ArticleResponse,
