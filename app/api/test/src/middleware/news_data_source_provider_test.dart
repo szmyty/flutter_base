@@ -1,5 +1,5 @@
-import "package:dart_frog/dart_frog.dart";
 import "package:app_api/api.dart";
+import "package:dart_frog/dart_frog.dart";
 import "package:mocktail/mocktail.dart";
 import "package:test/test.dart";
 
@@ -10,7 +10,7 @@ void main() {
     test("provides a FeedDataSource instance", () async {
       FeedDataSource? value;
       final context = _MockRequestContext();
-      final handler = newsDataSourceProvider()(
+      final handler = feedDataSourceProvider()(
         (_) {
           value = context.read<FeedDataSource>();
           return Response(body: "");

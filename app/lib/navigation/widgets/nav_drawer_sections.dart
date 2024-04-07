@@ -1,7 +1,9 @@
+import "package:app/categories/bloc/categories_bloc.dart";
+import "package:app/home/cubit/home_cubit.dart";
 import "package:app_ui/app_ui.dart" show AppColors, AppSpacing;
 import "package:flutter/material.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
-// import 'package:intl/intl.dart' show toBeginningOfSentenceCase;
+import "package:intl/intl.dart" show toBeginningOfSentenceCase;
 
 class NavDrawerSections extends StatelessWidget {
   const NavDrawerSections({super.key});
@@ -51,7 +53,7 @@ class NavDrawerSectionsTitle extends StatelessWidget {
           vertical: AppSpacing.lg + AppSpacing.xxs,
         ),
         child: Text(
-          context.l10n.navigationDrawerSectionsTitle,
+          "Categories",
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
                 color: AppColors.primaryContainer,
               ),
