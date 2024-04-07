@@ -14,10 +14,10 @@ class _MockRequestContext extends Mock implements RequestContext {}
 
 void main() {
   group("GET /api/v1/search/popular", () {
-    late FeedDataSource newsDataSource;
+    late FeedDataSource feedDataSource;
 
     setUp(() {
-      newsDataSource = _MockFeedDataSource();
+      feedDataSource = _MockFeedDataSource();
     });
 
     test("responds with a 200 on success.", () async {
@@ -25,22 +25,22 @@ void main() {
         articles: popularArticles.map((item) => item.post).toList(),
         topics: popularTopics,
       );
-      when(() => newsDataSource.getPopularArticles()).thenAnswer(
+      when(() => feedDataSource.getPopularArticles()).thenAnswer(
         (_) async => expected.articles,
       );
       when(
-        () => newsDataSource.getPopularTopics(),
+        () => feedDataSource.getPopularTopics(),
       ).thenAnswer((_) async => expected.topics);
       final request = Request("GET", Uri.parse("http://127.0.0.1/"));
       final context = _MockRequestContext();
       when(() => context.request).thenReturn(request);
-      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(feedDataSource);
 
       final response = await route.onRequest(context);
       expect(response.statusCode, equals(HttpStatus.ok));
       expect(response.json(), completion(equals(expected.toJson())));
-      verify(() => newsDataSource.getPopularArticles()).called(1);
-      verify(() => newsDataSource.getPopularTopics()).called(1);
+      verify(() => feedDataSource.getPopularArticles()).called(1);
+      verify(() => feedDataSource.getPopularTopics()).called(1);
     });
   });
 

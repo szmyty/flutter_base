@@ -2,8 +2,8 @@
 
 import "dart:io";
 
-import "package:dart_frog/dart_frog.dart";
 import "package:app_api/api.dart";
+import "package:dart_frog/dart_frog.dart";
 import "package:mocktail/mocktail.dart";
 import "package:test/test.dart";
 
@@ -16,10 +16,10 @@ class _MockFeedDataSource extends Mock implements FeedDataSource {}
 class _MockRequestUser extends Mock implements RequestUser {}
 
 void main() {
-  late FeedDataSource newsDataSource;
+  late FeedDataSource feedDataSource;
 
   setUp(() {
-    newsDataSource = _MockFeedDataSource();
+    feedDataSource = _MockFeedDataSource();
   });
 
   group("GET /api/v1/subscriptions", () {
@@ -35,7 +35,7 @@ void main() {
       );
 
       when(
-        () => newsDataSource.getSubscriptions(),
+        () => feedDataSource.getSubscriptions(),
       ).thenAnswer((_) async => [subscription]);
 
       final expected = SubscriptionsResponse(subscriptions: [subscription]);
@@ -43,11 +43,11 @@ void main() {
       final request = Request("GET", Uri.parse("http://127.0.0.1/"));
       final context = _MockRequestContext();
       when(() => context.request).thenReturn(request);
-      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(feedDataSource);
       final response = await route.onRequest(context);
       expect(response.statusCode, equals(HttpStatus.ok));
       expect(response.json(), completion(equals(expected.toJson())));
-      verify(() => newsDataSource.getSubscriptions()).called(1);
+      verify(() => feedDataSource.getSubscriptions()).called(1);
     });
   });
 
@@ -86,10 +86,10 @@ void main() {
       when(() => user.isAnonymous).thenReturn(false);
       final context = _MockRequestContext();
       when(() => context.request).thenReturn(request);
-      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(feedDataSource);
       when(() => context.read<RequestUser>()).thenReturn(user);
       when(
-        () => newsDataSource.createSubscription(
+        () => feedDataSource.createSubscription(
           userId: any(named: "userId"),
           subscriptionId: any(named: "subscriptionId"),
         ),
@@ -98,7 +98,7 @@ void main() {
       final response = await route.onRequest(context);
       expect(response.statusCode, equals(HttpStatus.created));
       verify(
-        () => newsDataSource.createSubscription(
+        () => feedDataSource.createSubscription(
           userId: userId,
           subscriptionId: subscriptionId,
         ),

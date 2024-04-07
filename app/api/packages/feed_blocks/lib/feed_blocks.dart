@@ -12,10 +12,10 @@ export "src/block_action.dart"
 export "src/block_action_converter.dart" show BlockActionConverter;
 export "src/category.dart" show Category;
 export "src/divider_horizontal_block.dart" show DividerHorizontalBlock;
+export "src/feed_block.dart" show FeedBlock;
+export "src/feed_blocks_converter.dart" show NewsBlocksConverter;
 export "src/html_block.dart" show HtmlBlock;
 export "src/image_block.dart" show ImageBlock;
-export "src/news_block.dart" show NewsBlock;
-export "src/feed_blocks_converter.dart" show NewsBlocksConverter;
 export "src/newsletter_block.dart" show NewsletterBlock;
 export "src/post_block.dart" show PostBlock, PostBlockActions;
 export "src/post_category.dart" show PostCategory;

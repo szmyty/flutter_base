@@ -4,7 +4,7 @@ import "package:feed_blocks/feed_blocks.dart";
 import "package:feed_blocks_ui/feed_blocks_ui.dart";
 
 /// {@template trending_story}
-/// A reusable trending story news block widget.
+/// A reusable trending story block widget.
 /// {@endtemplate}
 class TrendingStory extends StatelessWidget {
   /// {@macro trending_story}

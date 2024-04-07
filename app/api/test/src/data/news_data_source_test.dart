@@ -51,7 +51,7 @@ class MyFeedDataSource extends FeedDataSource {
   }
 
   @override
-  Future<List<NewsBlock>> getPopularArticles() {
+  Future<List<FeedBlock>> getPopularArticles() {
     throw UnimplementedError();
   }
 
@@ -66,7 +66,7 @@ class MyFeedDataSource extends FeedDataSource {
   }
 
   @override
-  Future<List<NewsBlock>> getRelevantArticles({required String term}) {
+  Future<List<FeedBlock>> getRelevantArticles({required String term}) {
     throw UnimplementedError();
   }
 
@@ -82,7 +82,7 @@ class MyFeedDataSource extends FeedDataSource {
 }
 
 void main() {
-  Matcher articleHaving({required List<NewsBlock> blocks, int? totalBlocks}) {
+  Matcher articleHaving({required List<FeedBlock> blocks, int? totalBlocks}) {
     return predicate<Article>(
       (article) {
         totalBlocks ??= article.totalBlocks;
@@ -97,7 +97,7 @@ void main() {
   }
 
   Matcher relatedArticlesHaving({
-    required List<NewsBlock> blocks,
+    required List<FeedBlock> blocks,
     int? totalBlocks,
   }) {
     return predicate<RelatedArticles>(
@@ -113,7 +113,7 @@ void main() {
     );
   }
 
-  Matcher feedHaving({required List<NewsBlock> blocks, int? totalBlocks}) {
+  Matcher feedHaving({required List<FeedBlock> blocks, int? totalBlocks}) {
     return predicate<Feed>(
       (feed) {
         totalBlocks ??= feed.totalBlocks;
@@ -140,16 +140,16 @@ void main() {
   });
 
   group("InMemoryFeedDataSource", () {
-    late FeedDataSource newsDataSource;
+    late FeedDataSource feedDataSource;
 
     setUp(() {
-      newsDataSource = InMemoryFeedDataSource();
+      feedDataSource = InMemoryFeedDataSource();
     });
 
     group("createSubscription", () {
       test("completes", () async {
         expect(
-          newsDataSource.createSubscription(
+          feedDataSource.createSubscription(
             userId: "userId",
             subscriptionId: "subscriptionId",
           ),
@@ -161,7 +161,7 @@ void main() {
     group("getSubscriptions", () {
       test("returns list of subscriptions", () async {
         expect(
-          newsDataSource.getSubscriptions(),
+          feedDataSource.getSubscriptions(),
           completion(equals(subscriptions)),
         );
       });
@@ -173,7 +173,7 @@ void main() {
           "when subscription does not exist", () async {
         const userId = "userId";
         expect(
-          newsDataSource.getUser(userId: userId),
+          feedDataSource.getUser(userId: userId),
           completion(User(id: userId, subscription: SubscriptionPlan.none)),
         );
       });
@@ -181,12 +181,12 @@ void main() {
       test("completes with user when user exists", () async {
         const userId = "userId";
         final subscription = subscriptions.first;
-        await newsDataSource.createSubscription(
+        await feedDataSource.createSubscription(
           userId: userId,
           subscriptionId: subscription.id,
         );
         expect(
-          newsDataSource.getUser(userId: userId),
+          feedDataSource.getUser(userId: userId),
           completion(
             equals(
               User(id: userId, subscription: subscription.name),
@@ -199,21 +199,21 @@ void main() {
     group("getFeed", () {
       test("returns stubbed feed (default category)", () {
         expect(
-          newsDataSource.getFeed(limit: 100),
+          feedDataSource.getFeed(limit: 100),
           completion(feedHaving(blocks: topNewsFeedBlocks)),
         );
       });
 
       test("returns stubbed feed (Category.technology)", () {
         expect(
-          newsDataSource.getFeed(category: Category.technology),
+          feedDataSource.getFeed(category: Category.technology),
           completion(feedHaving(blocks: technologyFeedBlocks)),
         );
       });
 
       test("returns stubbed feed (Category.sports)", () {
         expect(
-          newsDataSource.getFeed(category: Category.sports),
+          feedDataSource.getFeed(category: Category.sports),
           completion(feedHaving(blocks: sportsFeedBlocks)),
         );
       });
@@ -225,7 +225,7 @@ void main() {
         ];
         for (final category in emptyCategories) {
           await expectLater(
-            newsDataSource.getFeed(category: category),
+            feedDataSource.getFeed(category: category),
             completion(isAnEmptyFeed()),
           );
         }
@@ -233,14 +233,14 @@ void main() {
 
       test("returns correct feed when limit is specified", () {
         expect(
-          newsDataSource.getFeed(limit: 0),
+          feedDataSource.getFeed(limit: 0),
           completion(
             feedHaving(blocks: [], totalBlocks: topNewsFeedBlocks.length),
           ),
         );
 
         expect(
-          newsDataSource.getFeed(limit: 1),
+          feedDataSource.getFeed(limit: 1),
           completion(
             feedHaving(
               blocks: topNewsFeedBlocks.take(1).toList(),
@@ -250,7 +250,7 @@ void main() {
         );
 
         expect(
-          newsDataSource.getFeed(limit: 100),
+          feedDataSource.getFeed(limit: 100),
           completion(
             feedHaving(
               blocks: topNewsFeedBlocks,
@@ -262,7 +262,7 @@ void main() {
 
       test("returns correct feed when offset is specified", () {
         expect(
-          newsDataSource.getFeed(offset: 1, limit: 100),
+          feedDataSource.getFeed(offset: 1, limit: 100),
           completion(
             feedHaving(
               blocks: topNewsFeedBlocks.sublist(1),
@@ -272,7 +272,7 @@ void main() {
         );
 
         expect(
-          newsDataSource.getFeed(offset: 2, limit: 100),
+          feedDataSource.getFeed(offset: 2, limit: 100),
           completion(
             feedHaving(
               blocks: topNewsFeedBlocks.sublist(2),
@@ -282,7 +282,7 @@ void main() {
         );
 
         expect(
-          newsDataSource.getFeed(offset: 100, limit: 100),
+          feedDataSource.getFeed(offset: 100, limit: 100),
           completion(
             feedHaving(
               blocks: [],
@@ -296,7 +296,7 @@ void main() {
     group("getCategories", () {
       test("returns stubbed categories", () {
         expect(
-          newsDataSource.getCategories(),
+          feedDataSource.getCategories(),
           completion([
             Category.top,
             Category.technology,
@@ -311,7 +311,7 @@ void main() {
     group("getArticle", () {
       test("returns null when article id cannot be found", () {
         expect(
-          newsDataSource.getArticle(id: "__invalid_article_id__"),
+          feedDataSource.getArticle(id: "__invalid_article_id__"),
           completion(isNull),
         );
       });
@@ -321,7 +321,7 @@ void main() {
           "and preview is false", () {
         final item = healthItems.first;
         expect(
-          newsDataSource.getArticle(id: item.post.id),
+          feedDataSource.getArticle(id: item.post.id),
           completion(
             articleHaving(
               blocks: item.content,
@@ -336,7 +336,7 @@ void main() {
           "and preview is true", () {
         final item = healthItems.first;
         expect(
-          newsDataSource.getArticle(id: item.post.id, preview: true),
+          feedDataSource.getArticle(id: item.post.id, preview: true),
           completion(
             articleHaving(
               blocks: item.contentPreview,
@@ -349,7 +349,7 @@ void main() {
       test("supports limit if specified", () {
         final item = healthItems.first;
         expect(
-          newsDataSource.getArticle(id: item.post.id, limit: 1),
+          feedDataSource.getArticle(id: item.post.id, limit: 1),
           completion(
             articleHaving(
               blocks: item.content.take(1).toList(),
@@ -362,7 +362,7 @@ void main() {
       test("supports offset if specified", () {
         final item = healthItems.first;
         expect(
-          newsDataSource.getArticle(id: item.post.id, offset: 1),
+          feedDataSource.getArticle(id: item.post.id, offset: 1),
           completion(
             articleHaving(
               blocks: item.content.sublist(1).toList(),
@@ -376,7 +376,7 @@ void main() {
     group("isPremiumArticle", () {
       test("returns null when article id cannot be found", () {
         expect(
-          newsDataSource.isPremiumArticle(id: "__invalid_article_id__"),
+          feedDataSource.isPremiumArticle(id: "__invalid_article_id__"),
           completion(isNull),
         );
       });
@@ -386,7 +386,7 @@ void main() {
           "and isPremium is true", () {
         final item = technologySmallItems.last;
         expect(
-          newsDataSource.isPremiumArticle(id: item.post.id),
+          feedDataSource.isPremiumArticle(id: item.post.id),
           completion(isTrue),
         );
       });
@@ -396,7 +396,7 @@ void main() {
           "and isPremium is false", () {
         final item = healthItems.last;
         expect(
-          newsDataSource.isPremiumArticle(id: item.post.id),
+          feedDataSource.isPremiumArticle(id: item.post.id),
           completion(isFalse),
         );
       });
@@ -405,7 +405,7 @@ void main() {
     group("getPopularArticles", () {
       test("returns correct list of articles", () async {
         expect(
-          newsDataSource.getPopularArticles(),
+          feedDataSource.getPopularArticles(),
           completion(equals(popularArticles.map((item) => item.post).toList())),
         );
       });
@@ -414,7 +414,7 @@ void main() {
     group("getPopularTopics", () {
       test("returns correct list of topics", () async {
         expect(
-          newsDataSource.getPopularTopics(),
+          feedDataSource.getPopularTopics(),
           completion(equals(popularTopics)),
         );
       });
@@ -423,7 +423,7 @@ void main() {
     group("getRelevantArticles", () {
       test("returns correct list of articles", () async {
         expect(
-          newsDataSource.getRelevantArticles(term: "term"),
+          feedDataSource.getRelevantArticles(term: "term"),
           completion(
             equals(relevantArticles.map((item) => item.post).toList()),
           ),
@@ -434,7 +434,7 @@ void main() {
     group("getRelevantTopics", () {
       test("returns correct list of topics", () async {
         expect(
-          newsDataSource.getRelevantTopics(term: "term"),
+          feedDataSource.getRelevantTopics(term: "term"),
           completion(equals(relevantTopics)),
         );
       });
@@ -443,14 +443,14 @@ void main() {
     group("getRelatedArticles", () {
       test("returns empty when article id cannot be found", () {
         expect(
-          newsDataSource.getRelatedArticles(id: "__invalid_article_id__"),
+          feedDataSource.getRelatedArticles(id: "__invalid_article_id__"),
           completion(equals(RelatedArticles.empty())),
         );
       });
 
       test("returns null when related articles cannot be found", () {
         expect(
-          newsDataSource.getRelatedArticles(id: scienceVideoItems.last.post.id),
+          feedDataSource.getRelatedArticles(id: scienceVideoItems.last.post.id),
           completion(equals(RelatedArticles.empty())),
         );
       });
@@ -459,7 +459,7 @@ void main() {
         final item = healthItems.first;
         final relatedArticles = item.relatedArticles;
         expect(
-          newsDataSource.getRelatedArticles(id: item.post.id),
+          feedDataSource.getRelatedArticles(id: item.post.id),
           completion(
             relatedArticlesHaving(
               blocks: relatedArticles,
@@ -473,7 +473,7 @@ void main() {
         final item = healthItems.first;
         final relatedArticles = item.relatedArticles;
         expect(
-          newsDataSource.getRelatedArticles(id: item.post.id, limit: 1),
+          feedDataSource.getRelatedArticles(id: item.post.id, limit: 1),
           completion(
             relatedArticlesHaving(
               blocks: relatedArticles.take(1).toList(),
@@ -487,7 +487,7 @@ void main() {
         final item = healthSmallItems.first;
         final relatedArticles = item.relatedArticles;
         expect(
-          newsDataSource.getRelatedArticles(id: item.post.id, offset: 1),
+          feedDataSource.getRelatedArticles(id: item.post.id, offset: 1),
           completion(
             relatedArticlesHaving(
               blocks: relatedArticles.sublist(1).toList(),

@@ -1,4 +1,4 @@
-/// Flutter News Example API Client-Side Library
+/// App API Client-Side Library
 library client;
 
 export "package:feed_blocks/feed_blocks.dart"

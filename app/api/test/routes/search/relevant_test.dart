@@ -14,17 +14,17 @@ class _MockRequestContext extends Mock implements RequestContext {}
 
 void main() {
   group("GET /api/v1/search/relevant", () {
-    late FeedDataSource newsDataSource;
+    late FeedDataSource feedDataSource;
 
     setUp(() {
-      newsDataSource = _MockFeedDataSource();
+      feedDataSource = _MockFeedDataSource();
     });
 
     test("responds with a 400 when query parameter is missing.", () async {
       final request = Request("GET", Uri.parse("http://127.0.0.1/"));
       final context = _MockRequestContext();
       when(() => context.request).thenReturn(request);
-      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(feedDataSource);
 
       final response = await route.onRequest(context);
       expect(response.statusCode, equals(HttpStatus.badRequest));
@@ -37,10 +37,10 @@ void main() {
         topics: relevantTopics,
       );
       when(
-        () => newsDataSource.getRelevantArticles(term: any(named: "term")),
+        () => feedDataSource.getRelevantArticles(term: any(named: "term")),
       ).thenAnswer((_) async => expected.articles);
       when(
-        () => newsDataSource.getRelevantTopics(term: any(named: "term")),
+        () => feedDataSource.getRelevantTopics(term: any(named: "term")),
       ).thenAnswer((_) async => expected.topics);
       final request = Request(
         "GET",
@@ -50,13 +50,13 @@ void main() {
       );
       final context = _MockRequestContext();
       when(() => context.request).thenReturn(request);
-      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(feedDataSource);
 
       final response = await route.onRequest(context);
       expect(response.statusCode, equals(HttpStatus.ok));
       expect(response.json(), completion(equals(expected.toJson())));
-      verify(() => newsDataSource.getRelevantArticles(term: term)).called(1);
-      verify(() => newsDataSource.getRelevantTopics(term: term)).called(1);
+      verify(() => feedDataSource.getRelevantArticles(term: term)).called(1);
+      verify(() => feedDataSource.getRelevantTopics(term: term)).called(1);
     });
   });
 

@@ -1,5 +1,5 @@
-import "package:flutter/material.dart";
 import "package:feed_blocks/feed_blocks.dart";
+import "package:flutter/material.dart";
 
 /// {@template divider_horizontal}
 /// A reusable divider horizontal block widget.

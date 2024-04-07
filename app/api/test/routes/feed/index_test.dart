@@ -1,9 +1,9 @@
 import "dart:io";
 
-import "package:dart_frog/dart_frog.dart";
 import "package:app_api/api.dart";
-import "package:mocktail/mocktail.dart";
+import "package:dart_frog/dart_frog.dart";
 import "package:feed_blocks/feed_blocks.dart";
+import "package:mocktail/mocktail.dart";
 import "package:test/test.dart";
 
 import "../../../routes/api/v1/feed/index.dart" as route;
@@ -27,7 +27,7 @@ void main() {
     });
 
     test("responds with a 200 on success.", () async {
-      final blocks = <NewsBlock>[];
+      final blocks = <FeedBlock>[];
       final feed = _MockFeed();
       when(() => feed.blocks).thenReturn(blocks);
       when(() => feed.totalBlocks).thenReturn(blocks.length);
@@ -53,7 +53,7 @@ void main() {
       const category = Category.entertainment;
       const limit = 42;
       const offset = 7;
-      final blocks = <NewsBlock>[];
+      final blocks = <FeedBlock>[];
       final feed = _MockFeed();
       when(() => feed.blocks).thenReturn(blocks);
       when(() => feed.totalBlocks).thenReturn(blocks.length);

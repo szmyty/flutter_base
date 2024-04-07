@@ -82,7 +82,7 @@ class ApiClient {
   /// Requests news feed metadata.
   ///
   /// Supported parameters:
-  /// * [category] - The desired news [Category].
+  /// * [category] - The desired [Category].
   /// * [limit] - The number of results to return.
   /// * [offset] - The (zero-based) offset of the first item
   /// in the collection to return.
@@ -115,7 +115,7 @@ class ApiClient {
   }
 
   /// GET /api/v1/categories
-  /// Requests the available news categories.
+  /// Requests the available categories.
   Future<CategoriesResponse> getCategories() async {
     final uri = Uri.parse("$_baseUrl/api/v1/categories");
     final response = await _httpClient.get(

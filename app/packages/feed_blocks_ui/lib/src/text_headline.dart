@@ -1,9 +1,9 @@
 import "package:app_ui/app_ui.dart";
-import "package:flutter/material.dart";
 import "package:feed_blocks/feed_blocks.dart";
+import "package:flutter/material.dart";
 
 /// {@template text_headline}
-/// A reusable text headline news block widget.
+/// A reusable text headline block widget.
 /// {@endtemplate}
 class TextHeadline extends StatelessWidget {
   /// {@macro text_headline}

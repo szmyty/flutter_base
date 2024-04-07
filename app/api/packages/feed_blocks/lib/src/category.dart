@@ -1,4 +1,4 @@
-/// The supported news category types.
+/// The supported category types.
 enum Category {
   /// News relating to business.
   business,

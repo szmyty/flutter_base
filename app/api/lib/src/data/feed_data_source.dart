@@ -2,13 +2,13 @@ import "package:app_api/api.dart";
 import "package:feed_blocks/feed_blocks.dart";
 
 /// {@template feed_data_source}
-/// An interface for a news content data source.
+/// An interface for a content data source.
 /// {@endtemplate}
 abstract class FeedDataSource {
   /// {@macro feed_data_source}
   const FeedDataSource();
 
-  /// Returns a news [Article] for the provided article [id].
+  /// Returns a [Article] for the provided article [id].
   ///
   /// In addition, the contents can be paginated by supplying
   /// [limit] and [offset].
@@ -59,7 +59,7 @@ abstract class FeedDataSource {
     int offset = 0,
   });
 
-  /// Returns a news [Feed] for the provided [category].
+  /// Returns a [Feed] for the provided [category].
   /// By default [Category.top] is used.
   ///
   /// In addition, the feed can be paginated by supplying
@@ -74,7 +74,7 @@ abstract class FeedDataSource {
     int offset = 0,
   });
 
-  /// Returns a list of all available news categories.
+  /// Returns a list of all available categories.
   Future<List<Category>> getCategories();
 
   /// Subscribes the user with the associated [userId] to

@@ -16,35 +16,35 @@ class _MockRequestUser extends Mock implements RequestUser {}
 void main() {
   const id = "__test_article_id__";
   group("GET /api/v1/articles/<id>", () {
-    late FeedDataSource newsDataSource;
+    late FeedDataSource feedDataSource;
 
     setUp(() {
-      newsDataSource = _MockFeedDataSource();
+      feedDataSource = _MockFeedDataSource();
     });
 
     test("responds with a 404 when article not found (isPremium)", () async {
       when(
-        () => newsDataSource.isPremiumArticle(id: id),
+        () => feedDataSource.isPremiumArticle(id: id),
       ).thenAnswer((_) async => null);
       final request = Request("GET", Uri.parse("http://127.0.0.1/"));
       final context = _MockRequestContext();
       when(() => context.request).thenReturn(request);
-      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(feedDataSource);
       final response = await route.onRequest(context, id);
       expect(response.statusCode, equals(HttpStatus.notFound));
     });
 
     test("responds with a 404 when article not found (getArticle)", () async {
       when(
-        () => newsDataSource.isPremiumArticle(id: id),
+        () => feedDataSource.isPremiumArticle(id: id),
       ).thenAnswer((_) async => false);
       when(
-        () => newsDataSource.getArticle(id: id),
+        () => feedDataSource.getArticle(id: id),
       ).thenAnswer((_) async => null);
       final request = Request("GET", Uri.parse("http://127.0.0.1/"));
       final context = _MockRequestContext();
       when(() => context.request).thenReturn(request);
-      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(feedDataSource);
       final response = await route.onRequest(context, id);
       expect(response.statusCode, equals(HttpStatus.notFound));
     });
@@ -60,10 +60,10 @@ void main() {
         url: url,
       );
       when(
-        () => newsDataSource.getArticle(id: id),
+        () => feedDataSource.getArticle(id: id),
       ).thenAnswer((_) async => article);
       when(
-        () => newsDataSource.isPremiumArticle(id: id),
+        () => feedDataSource.isPremiumArticle(id: id),
       ).thenAnswer((_) async => false);
       final expected = ArticleResponse(
         title: article.title,
@@ -76,7 +76,7 @@ void main() {
       final request = Request("GET", Uri.parse("http://127.0.0.1/"));
       final context = _MockRequestContext();
       when(() => context.request).thenReturn(request);
-      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(feedDataSource);
       final response = await route.onRequest(context, id);
       expect(response.statusCode, equals(HttpStatus.ok));
       expect(await response.json(), equals(expected.toJson()));
@@ -93,10 +93,10 @@ void main() {
         url: url,
       );
       when(
-        () => newsDataSource.getArticle(id: id, preview: true),
+        () => feedDataSource.getArticle(id: id, preview: true),
       ).thenAnswer((_) async => article);
       when(
-        () => newsDataSource.isPremiumArticle(id: id),
+        () => feedDataSource.isPremiumArticle(id: id),
       ).thenAnswer((_) async => false);
       final expected = ArticleResponse(
         title: article.title,
@@ -114,7 +114,7 @@ void main() {
       );
       final context = _MockRequestContext();
       when(() => context.request).thenReturn(request);
-      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(feedDataSource);
       when(() => context.read<RequestUser>()).thenReturn(RequestUser.anonymous);
       final response = await route.onRequest(context, id);
       expect(response.statusCode, equals(HttpStatus.ok));
@@ -132,10 +132,10 @@ void main() {
         url: url,
       );
       when(
-        () => newsDataSource.getArticle(id: id, preview: true),
+        () => feedDataSource.getArticle(id: id, preview: true),
       ).thenAnswer((_) async => article);
       when(
-        () => newsDataSource.isPremiumArticle(id: id),
+        () => feedDataSource.isPremiumArticle(id: id),
       ).thenAnswer((_) async => true);
       final expected = ArticleResponse(
         title: article.title,
@@ -148,7 +148,7 @@ void main() {
       final request = Request("GET", Uri.parse("http://127.0.0.1/"));
       final context = _MockRequestContext();
       when(() => context.request).thenReturn(request);
-      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(feedDataSource);
       when(() => context.read<RequestUser>()).thenReturn(RequestUser.anonymous);
       final response = await route.onRequest(context, id);
       expect(response.statusCode, equals(HttpStatus.ok));
@@ -167,13 +167,13 @@ void main() {
         url: url,
       );
       when(
-        () => newsDataSource.getArticle(id: id, preview: true),
+        () => feedDataSource.getArticle(id: id, preview: true),
       ).thenAnswer((_) async => article);
       when(
-        () => newsDataSource.isPremiumArticle(id: id),
+        () => feedDataSource.isPremiumArticle(id: id),
       ).thenAnswer((_) async => true);
       when(
-        () => newsDataSource.getUser(userId: userId),
+        () => feedDataSource.getUser(userId: userId),
       ).thenAnswer((_) async => null);
       final expected = ArticleResponse(
         title: article.title,
@@ -189,7 +189,7 @@ void main() {
       when(() => requestUser.id).thenReturn(userId);
       when(() => requestUser.isAnonymous).thenReturn(false);
       when(() => context.request).thenReturn(request);
-      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(feedDataSource);
       when(() => context.read<RequestUser>()).thenReturn(requestUser);
       final response = await route.onRequest(context, id);
       expect(response.statusCode, equals(HttpStatus.ok));
@@ -209,13 +209,13 @@ void main() {
         url: url,
       );
       when(
-        () => newsDataSource.getArticle(id: id, preview: true),
+        () => feedDataSource.getArticle(id: id, preview: true),
       ).thenAnswer((_) async => article);
       when(
-        () => newsDataSource.isPremiumArticle(id: id),
+        () => feedDataSource.isPremiumArticle(id: id),
       ).thenAnswer((_) async => true);
       when(
-        () => newsDataSource.getUser(userId: userId),
+        () => feedDataSource.getUser(userId: userId),
       ).thenAnswer((_) async => user);
       final expected = ArticleResponse(
         title: article.title,
@@ -231,7 +231,7 @@ void main() {
       when(() => requestUser.id).thenReturn(userId);
       when(() => requestUser.isAnonymous).thenReturn(false);
       when(() => context.request).thenReturn(request);
-      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(feedDataSource);
       when(() => context.read<RequestUser>()).thenReturn(requestUser);
       final response = await route.onRequest(context, id);
       expect(response.statusCode, equals(HttpStatus.ok));
@@ -251,13 +251,13 @@ void main() {
         url: url,
       );
       when(
-        () => newsDataSource.getArticle(id: id),
+        () => feedDataSource.getArticle(id: id),
       ).thenAnswer((_) async => article);
       when(
-        () => newsDataSource.isPremiumArticle(id: id),
+        () => feedDataSource.isPremiumArticle(id: id),
       ).thenAnswer((_) async => true);
       when(
-        () => newsDataSource.getUser(userId: userId),
+        () => feedDataSource.getUser(userId: userId),
       ).thenAnswer((_) async => user);
       final expected = ArticleResponse(
         title: article.title,
@@ -273,7 +273,7 @@ void main() {
       when(() => requestUser.id).thenReturn(userId);
       when(() => requestUser.isAnonymous).thenReturn(false);
       when(() => context.request).thenReturn(request);
-      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(feedDataSource);
       when(() => context.read<RequestUser>()).thenReturn(requestUser);
       final response = await route.onRequest(context, id);
       expect(response.statusCode, equals(HttpStatus.ok));

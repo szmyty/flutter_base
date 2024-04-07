@@ -5,7 +5,7 @@ import "package:feed_blocks/feed_blocks.dart";
 part "article.g.dart";
 
 /// {@template article}
-/// A news article object which contains paginated contents.
+/// An article object which contains paginated contents.
 /// {@endtemplate}
 @JsonSerializable()
 class Article extends Equatable {
@@ -24,9 +24,9 @@ class Article extends Equatable {
   /// The article title.
   final String title;
 
-  /// The list of news blocks for the associated article (paginated).
-  @NewsBlocksConverter()
-  final List<NewsBlock> blocks;
+  /// The list of feed blocks for the associated article (paginated).
+  @FeedBlocksConverter()
+  final List<FeedBlock> blocks;
 
   /// The total number of blocks for this article.
   final int totalBlocks;

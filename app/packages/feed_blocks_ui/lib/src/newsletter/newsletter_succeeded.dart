@@ -1,6 +1,6 @@
 import "package:app_ui/app_ui.dart";
-import "package:flutter/material.dart";
 import "package:feed_blocks_ui/src/newsletter/index.dart";
+import "package:flutter/material.dart";
 
 /// {@template newsletter_success}
 /// A reusable newsletter success news block widget.

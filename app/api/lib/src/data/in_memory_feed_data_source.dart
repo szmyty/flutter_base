@@ -9,10 +9,10 @@ part "static_feed_data.dart";
 
 /// {@template in_memory_feed_data_source}
 /// An implementation of [FeedDataSource] which
-/// is powered by in-memory news content.
+/// is powered by in-memory content.
 /// {@endtemplate}
 class InMemoryFeedDataSource implements FeedDataSource {
-  /// {@macro in_memory_news_data_store}
+  /// {@macro in_memory_feed_data_store}
   InMemoryFeedDataSource() : _userSubscriptions = <String, String>{};
 
   final Map<String, String> _userSubscriptions;
@@ -41,13 +41,13 @@ class InMemoryFeedDataSource implements FeedDataSource {
     int offset = 0,
     bool preview = false,
   }) async {
-    final result = _newsItems.where((item) => item.post.id == id);
+    final result = _feedItems.where((item) => item.post.id == id);
     if (result.isEmpty) return null;
-    final articleNewsItem = result.first;
+    final articleFeedItem = result.first;
     final article = (preview
-            ? articleNewsItem.contentPreview
-            : articleNewsItem.content)
-        .toArticle(title: articleNewsItem.post.title, url: articleNewsItem.url);
+            ? articleFeedItem.contentPreview
+            : articleFeedItem.content)
+        .toArticle(title: articleFeedItem.post.title, url: articleFeedItem.url);
     final totalBlocks = article.totalBlocks;
     final normalizedOffset = math.min(offset, totalBlocks);
     final blocks =
@@ -62,18 +62,18 @@ class InMemoryFeedDataSource implements FeedDataSource {
 
   @override
   Future<bool?> isPremiumArticle({required String id}) async {
-    final result = _newsItems.where((item) => item.post.id == id);
+    final result = _feedItems.where((item) => item.post.id == id);
     if (result.isEmpty) return null;
     return result.first.post.isPremium;
   }
 
   @override
-  Future<List<NewsBlock>> getPopularArticles() async {
+  Future<List<FeedBlock>> getPopularArticles() async {
     return popularArticles.map((item) => item.post).toList();
   }
 
   @override
-  Future<List<NewsBlock>> getRelevantArticles({required String term}) async {
+  Future<List<FeedBlock>> getRelevantArticles({required String term}) async {
     return relevantArticles.map((item) => item.post).toList();
   }
 
@@ -91,7 +91,7 @@ class InMemoryFeedDataSource implements FeedDataSource {
     int limit = 20,
     int offset = 0,
   }) async {
-    final result = _newsItems.where((item) => item.post.id == id);
+    final result = _feedItems.where((item) => item.post.id == id);
     if (result.isEmpty) return const RelatedArticles.empty();
     final articles = result.first.relatedArticles;
     final totalBlocks = articles.length;

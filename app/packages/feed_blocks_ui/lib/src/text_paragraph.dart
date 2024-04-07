@@ -1,9 +1,9 @@
 import "package:app_ui/app_ui.dart";
-import "package:flutter/material.dart";
 import "package:feed_blocks/feed_blocks.dart";
+import "package:flutter/material.dart";
 
 /// {@template text_paragraph}
-/// A reusable text paragraph news block widget.
+/// A reusable text paragraph block widget.
 /// {@endtemplate}
 class TextParagraph extends StatelessWidget {
   /// {@macro text_paragraph}

@@ -48,7 +48,7 @@ class RelevantSearchFailure extends FeedFailure {
 }
 
 /// {@template feed_repository}
-/// A repository that manages news data.
+/// A repository that manages feed data.
 /// {@endtemplate}
 class FeedRepository {
   /// {@macro feed_repository}

@@ -1,62 +1,62 @@
 import "package:app/app/bloc/app_bloc.dart";
 import "package:app/categories/categories.dart";
+import "package:feed_blocks/feed_blocks.dart";
 import "package:feed_blocks_ui/feed_blocks_ui.dart";
 import "package:flutter/material.dart" hide Spacer;
 import "package:flutter_bloc/flutter_bloc.dart";
-import "package:feed_blocks/feed_blocks.dart";
 
 class CategoryFeedItem extends StatelessWidget {
   const CategoryFeedItem({required this.block, super.key});
 
-  /// The associated [NewsBlock] instance.
-  final NewsBlock block;
+  /// The associated [feedBlock] instance.
+  final FeedBlock block;
 
   @override
   Widget build(BuildContext context) {
-    final newsBlock = block;
+    final feedBlock = block;
 
     final isUserSubscribed =
         context.select((AppBloc bloc) => bloc.state.isUserSubscribed);
 
     late Widget widget;
 
-    if (newsBlock is DividerHorizontalBlock) {
-      widget = DividerHorizontal(block: newsBlock);
-    } else if (newsBlock is SpacerBlock) {
-      widget = Spacer(block: newsBlock);
-    } else if (newsBlock is SectionHeaderBlock) {
+    if (feedBlock is DividerHorizontalBlock) {
+      widget = DividerHorizontal(block: feedBlock);
+    } else if (feedBlock is SpacerBlock) {
+      widget = Spacer(block: feedBlock);
+    } else if (feedBlock is SectionHeaderBlock) {
       widget = SectionHeader(
-        block: newsBlock,
+        block: feedBlock,
         onPressed: (action) => _onFeedItemAction(context, action),
       );
-    } else if (newsBlock is PostLargeBlock) {
+    } else if (feedBlock is PostLargeBlock) {
       widget = PostLarge(
-        block: newsBlock,
+        block: feedBlock,
         premiumText: "Premium",
-        isLocked: newsBlock.isPremium && !isUserSubscribed,
+        isLocked: feedBlock.isPremium && !isUserSubscribed,
         onPressed: (action) => _onFeedItemAction(context, action),
       );
-    } else if (newsBlock is PostMediumBlock) {
+    } else if (feedBlock is PostMediumBlock) {
       widget = PostMedium(
-        block: newsBlock,
+        block: feedBlock,
         onPressed: (action) => _onFeedItemAction(context, action),
       );
-    } else if (newsBlock is PostSmallBlock) {
+    } else if (feedBlock is PostSmallBlock) {
       widget = PostSmall(
-        block: newsBlock,
+        block: feedBlock,
         onPressed: (action) => _onFeedItemAction(context, action),
       );
-    } else if (newsBlock is PostGridGroupBlock) {
+    } else if (feedBlock is PostGridGroupBlock) {
       widget = PostGrid(
-        gridGroupBlock: newsBlock,
+        gridGroupBlock: feedBlock,
         premiumText: "Premium",
         onPressed: (action) => _onFeedItemAction(context, action),
       );
-    } else if (newsBlock is NewsletterBlock) {
+    } else if (feedBlock is NewsletterBlock) {
       widget = const Newsletter();
-    } else if (newsBlock is BannerAdBlock) {
+    } else if (feedBlock is BannerAdBlock) {
       widget = BannerAd(
-        block: newsBlock,
+        block: feedBlock,
         adFailedToLoadTitle: "Ad failed to load",
       );
     } else {
@@ -64,7 +64,7 @@ class CategoryFeedItem extends StatelessWidget {
       widget = const SizedBox();
     }
 
-    return (newsBlock is! PostGridGroupBlock)
+    return (feedBlock is! PostGridGroupBlock)
         ? SliverToBoxAdapter(child: widget)
         : widget;
   }

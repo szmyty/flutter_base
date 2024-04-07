@@ -6,7 +6,7 @@ import "package:test/test.dart";
 class _MockRequestContext extends Mock implements RequestContext {}
 
 void main() {
-  group("newsDataSourceProvider", () {
+  group("feedDataSourceProvider", () {
     test("provides a FeedDataSource instance", () async {
       FeedDataSource? value;
       final context = _MockRequestContext();

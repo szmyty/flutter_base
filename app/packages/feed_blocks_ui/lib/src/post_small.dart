@@ -1,12 +1,12 @@
 import "package:app_ui/app_ui.dart";
 import "package:cached_network_image/cached_network_image.dart";
-import "package:flutter/material.dart";
 import "package:feed_blocks/feed_blocks.dart";
 import "package:feed_blocks_ui/feed_blocks_ui.dart";
 import "package:feed_blocks_ui/src/widgets/widgets.dart";
+import "package:flutter/material.dart";
 
 /// {@template post_small}
-/// A reusable post small news block widget.
+/// A reusable post small block widget.
 /// {@endtemplate}
 class PostSmall extends StatelessWidget {
   /// {@macro post_small}

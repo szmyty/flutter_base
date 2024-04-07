@@ -1,9 +1,9 @@
 import "dart:io";
 
-import "package:dart_frog/dart_frog.dart";
 import "package:app_api/api.dart";
-import "package:mocktail/mocktail.dart";
+import "package:dart_frog/dart_frog.dart";
 import "package:feed_blocks/feed_blocks.dart";
+import "package:mocktail/mocktail.dart";
 import "package:test/test.dart";
 
 import "../../../../routes/api/v1/articles/[id]/related.dart" as route;

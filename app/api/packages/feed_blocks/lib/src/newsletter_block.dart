@@ -9,7 +9,7 @@ part "newsletter_block.g.dart";
 /// https://www.figma.com/file/RajSN6YbRqTuqvdKYtij3b/Google-News-Template-App-v3?node-id=1701%3A24352
 /// {@endtemplate}
 @JsonSerializable()
-class NewsletterBlock with EquatableMixin implements NewsBlock {
+class NewsletterBlock with EquatableMixin implements FeedBlock {
   /// {@macro newsletter_block}
   const NewsletterBlock({
     this.type = NewsletterBlock.identifier,

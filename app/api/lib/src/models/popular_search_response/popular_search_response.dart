@@ -5,7 +5,7 @@ import "package:feed_blocks/feed_blocks.dart";
 part "popular_search_response.g.dart";
 
 /// {@template popular_search_response}
-/// A search response object which contains popular news content.
+/// A search response object which contains popular content.
 /// {@endtemplate}
 @JsonSerializable()
 class PopularSearchResponse extends Equatable {
@@ -17,8 +17,8 @@ class PopularSearchResponse extends Equatable {
       _$PopularSearchResponseFromJson(json);
 
   /// The article content blocks.
-  @NewsBlocksConverter()
-  final List<NewsBlock> articles;
+  @FeedBlocksConverter()
+  final List<FeedBlock> articles;
 
   /// The associated popular topics.
   final List<String> topics;

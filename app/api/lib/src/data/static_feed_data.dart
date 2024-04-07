@@ -1374,7 +1374,7 @@ final scienceFeedBlocks = <NewsBlock>[
   const SpacerBlock(spacing: Spacing.medium),
 ];
 
-List<NewsItem> get _newsItems {
+List<NewsItem> get _feedItems {
   return [
     ...technologyItems,
     ...sportsItems,
