@@ -7,7 +7,7 @@ import "package:flutter_html/flutter_html.dart" as flutter_html;
 import "package:flutter_html/flutter_html.dart";
 import "package:flutter_test/flutter_test.dart";
 import "package:mocktail/mocktail.dart";
-import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks/feed_blocks.dart";
 import "package:plugin_platform_interface/plugin_platform_interface.dart";
 import "package:url_launcher_platform_interface/url_launcher_platform_interface.dart";
 

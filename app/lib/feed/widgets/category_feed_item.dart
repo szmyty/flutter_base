@@ -1,12 +1,9 @@
-import 'package:flutter/material.dart' hide Spacer;
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_news_example/app/app.dart';
-import 'package:flutter_news_example/article/article.dart';
-import 'package:flutter_news_example/categories/categories.dart';
-import 'package:flutter_news_example/l10n/l10n.dart';
-import 'package:flutter_news_example/newsletter/newsletter.dart';
-import 'package:news_blocks/news_blocks.dart';
-import 'package:news_blocks_ui/news_blocks_ui.dart';
+import "package:app/app/bloc/app_bloc.dart";
+import "package:app/categories/categories.dart";
+import "package:feed_blocks_ui/feed_blocks_ui.dart";
+import "package:flutter/material.dart" hide Spacer;
+import "package:flutter_bloc/flutter_bloc.dart";
+import "package:feed_blocks/feed_blocks.dart";
 
 class CategoryFeedItem extends StatelessWidget {
   const CategoryFeedItem({required this.block, super.key});
@@ -35,7 +32,7 @@ class CategoryFeedItem extends StatelessWidget {
     } else if (newsBlock is PostLargeBlock) {
       widget = PostLarge(
         block: newsBlock,
-        premiumText: context.l10n.newsBlockPremiumText,
+        premiumText: "Premium",
         isLocked: newsBlock.isPremium && !isUserSubscribed,
         onPressed: (action) => _onFeedItemAction(context, action),
       );
@@ -52,7 +49,7 @@ class CategoryFeedItem extends StatelessWidget {
     } else if (newsBlock is PostGridGroupBlock) {
       widget = PostGrid(
         gridGroupBlock: newsBlock,
-        premiumText: context.l10n.newsBlockPremiumText,
+        premiumText: "Premium",
         onPressed: (action) => _onFeedItemAction(context, action),
       );
     } else if (newsBlock is NewsletterBlock) {
@@ -60,7 +57,7 @@ class CategoryFeedItem extends StatelessWidget {
     } else if (newsBlock is BannerAdBlock) {
       widget = BannerAd(
         block: newsBlock,
-        adFailedToLoadTitle: context.l10n.adLoadFailure,
+        adFailedToLoadTitle: "Ad failed to load",
       );
     } else {
       // Render an empty widget for the unsupported block type.

@@ -3,7 +3,7 @@ import "dart:math" as math;
 import "package:app_api/api.dart";
 import "package:app_api/src/data/models/models.dart";
 import "package:collection/collection.dart";
-import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks/feed_blocks.dart";
 
 part "static_feed_data.dart";
 

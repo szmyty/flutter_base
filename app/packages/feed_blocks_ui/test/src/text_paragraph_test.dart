@@ -2,7 +2,7 @@
 
 import "package:flutter/material.dart";
 import "package:flutter_test/flutter_test.dart";
-import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks/feed_blocks.dart";
 import "package:feed_blocks_ui/feed_blocks_ui.dart";
 
 import "../helpers/helpers.dart";

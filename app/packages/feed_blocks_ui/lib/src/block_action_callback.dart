@@ -1,4 +1,4 @@
-import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks/feed_blocks.dart";
 
 /// Signature of callbacks invoked when [BlockAction] is triggered.
 typedef BlockActionCallback = void Function(BlockAction action);

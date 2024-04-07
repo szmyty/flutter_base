@@ -2,7 +2,7 @@ import "package:app_ui/app_ui.dart";
 import "package:flutter/material.dart";
 import "package:flutter_html/flutter_html.dart" as flutter_html;
 
-import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks/feed_blocks.dart";
 import "package:url_launcher/url_launcher.dart";
 
 /// {@template html}

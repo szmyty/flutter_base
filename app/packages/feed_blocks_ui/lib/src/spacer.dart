@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks/feed_blocks.dart";
 
 /// {@template spacer}
 /// A reusable spacer news block widget.

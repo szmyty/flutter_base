@@ -1,6 +1,6 @@
 import "package:app_ui/app_ui.dart";
 import "package:flutter/material.dart";
-import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks/feed_blocks.dart";
 
 /// {@template banner_ad_container}
 /// A reusable banner ad container widget.

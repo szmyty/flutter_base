@@ -1,7 +1,7 @@
 /// Flutter News Example API Client-Side Library
 library client;
 
-export "package:news_blocks/news_blocks.dart"
+export "package:feed_blocks/feed_blocks.dart"
     show
         BlockAction,
         BlockActionType,

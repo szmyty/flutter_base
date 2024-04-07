@@ -1,4 +1,4 @@
-import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks/feed_blocks.dart";
 
 /// {@template news_item}
 /// An class that contains metadata representing a news item.

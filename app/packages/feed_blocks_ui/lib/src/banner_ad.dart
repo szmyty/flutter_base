@@ -1,5 +1,5 @@
 import "package:flutter/material.dart" hide ProgressIndicator;
-import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks/feed_blocks.dart";
 import "package:feed_blocks_ui/src/widgets/widgets.dart";
 
 /// {@template banner_ad}

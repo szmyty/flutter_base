@@ -2,7 +2,7 @@ import "dart:io";
 
 import "package:app_api/api.dart";
 import "package:dart_frog/dart_frog.dart";
-import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks/feed_blocks.dart";
 
 Future<Response> onRequest(RequestContext context) async {
   if (context.request.method != HttpMethod.get) {

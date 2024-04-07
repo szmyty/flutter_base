@@ -329,10 +329,10 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.3"
-  news_blocks:
+  feed_blocks:
     dependency: "direct main"
     description:
-      path: "packages/news_blocks"
+      path: "packages/feed_blocks"
       relative: true
     source: path
     version: "1.0.0+1"

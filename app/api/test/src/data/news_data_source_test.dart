@@ -2,7 +2,7 @@
 
 import "package:app_api/api.dart";
 import "package:app_api/src/data/in_memory_feed_data_source.dart";
-import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks/feed_blocks.dart";
 import "package:test/test.dart";
 
 class MyFeedDataSource extends FeedDataSource {

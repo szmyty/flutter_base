@@ -1,6 +1,6 @@
 import "package:equatable/equatable.dart";
 import "package:json_annotation/json_annotation.dart";
-import "package:news_blocks/news_blocks.dart";
+import "package:feed_blocks/feed_blocks.dart";
 
 part "feed.g.dart";
 
@@ -16,8 +16,8 @@ class Feed extends Equatable {
   factory Feed.fromJson(Map<String, dynamic> json) => _$FeedFromJson(json);
 
   /// The list of news blocks for the associated feed (paginated).
-  @NewsBlocksConverter()
-  final List<NewsBlock> blocks;
+  @FeedBlockConverter()
+  final List<FeedBlock> blocks;
 
   /// The total number of blocks for this feed.
   final int totalBlocks;
