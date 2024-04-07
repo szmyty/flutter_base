@@ -1,6 +1,6 @@
+import "package:feed_blocks/feed_blocks.dart";
 import "package:json_annotation/json_annotation.dart";
 import "package:meta/meta.dart";
-import "package:feed_blocks/feed_blocks.dart";
 
 /// {@template feed_block}
 /// A reusable block which represents a content-based component.

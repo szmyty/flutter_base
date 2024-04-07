@@ -1,4 +1,5 @@
 import "package:equatable/equatable.dart";
+import "package:feed_blocks/feed_blocks.dart";
 
 /// {@template post_block}
 /// An abstract block which represents a post block.
