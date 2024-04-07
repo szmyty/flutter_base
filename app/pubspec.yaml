@@ -47,6 +47,10 @@ dependencies:
   either_dart: ^1.0.0
   english_words: ^4.0.0
   equatable: ^2.0.5
+  feed_blocks:
+    path: api/packages/feed_blocks
+  feed_blocks_ui:
+    path: packages/feed_blocks_ui
   feed_repository:
     path: packages/feed_repository
   flow_builder: ^0.1.0
@@ -77,10 +81,6 @@ dependencies:
   logger: ^2.2.0
   lottie: ^3.1.0
   network_info_plus: ^5.0.2
-  feed_blocks:
-    path: api/packages/feed_blocks
-  feed_blocks_ui:
-    path: packages/feed_blocks_ui
   package_info_client:
     path: packages/package_info_client
   package_info_plus: ^6.0.0

@@ -10,12 +10,12 @@ dependencies:
   app_ui:
     path: ../app_ui
   cached_network_image: ^3.2.1
+  feed_blocks:
+    path: ../../api/packages/feed_blocks
   flutter:
     sdk: flutter
   flutter_html: 3.0.0-beta.2
   google_mobile_ads: ^4.0.0
-  feed_blocks:
-    path: ../../api/packages/feed_blocks
   path_provider_platform_interface: ^2.0.5
   platform: ^3.1.0
   plugin_platform_interface: ^2.1.3
