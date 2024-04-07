@@ -1236,7 +1236,7 @@ final scienceVideoItems = <NewsItem>[
 ];
 
 /// Top news feed blocks.
-final topNewsFeedBlocks = <NewsBlock>[
+final topNewsFeedBlocks = <FeedBlock>[
   const SpacerBlock(spacing: Spacing.small),
   const SectionHeaderBlock(title: "Breaking News"),
   technologyLargeItems.first.post,
@@ -1288,7 +1288,7 @@ final topNewsFeedBlocks = <NewsBlock>[
 ];
 
 /// Technology feed blocks.
-final technologyFeedBlocks = <NewsBlock>[
+final technologyFeedBlocks = <FeedBlock>[
   const SpacerBlock(spacing: Spacing.small),
   const SectionHeaderBlock(title: "Technology"),
   ...technologyLargeItems.map((item) => item.post),
@@ -1308,7 +1308,7 @@ final technologyFeedBlocks = <NewsBlock>[
 ];
 
 /// Sports feed blocks.
-final sportsFeedBlocks = <NewsBlock>[
+final sportsFeedBlocks = <FeedBlock>[
   const SpacerBlock(spacing: Spacing.small),
   const SectionHeaderBlock(title: "Sports"),
   ...sportsLargeItems.map((item) => item.post),
@@ -1328,7 +1328,7 @@ final sportsFeedBlocks = <NewsBlock>[
 ];
 
 /// Health feed blocks.
-final healthFeedBlocks = <NewsBlock>[
+final healthFeedBlocks = <FeedBlock>[
   const SpacerBlock(spacing: Spacing.small),
   const SectionHeaderBlock(title: "Health"),
   ...healthLargeItems.map((item) => item.post),
@@ -1348,7 +1348,7 @@ final healthFeedBlocks = <NewsBlock>[
 ];
 
 /// Science feed blocks.
-final scienceFeedBlocks = <NewsBlock>[
+final scienceFeedBlocks = <FeedBlock>[
   const SpacerBlock(spacing: Spacing.small),
   const SectionHeaderBlock(title: "Science"),
   ...scienceLargeItems.map((item) => item.post),
@@ -1391,7 +1391,7 @@ final _newsFeedData = <Category, Feed>{
   Category.science: scienceFeedBlocks.toFeed(),
 };
 
-extension on List<NewsBlock> {
+extension on List<FeedBlock> {
   Feed toFeed() => Feed(blocks: this, totalBlocks: length);
   Article toArticle({required String title, required Uri url}) {
     return Article(

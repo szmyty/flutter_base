@@ -1,10 +1,10 @@
 import "dart:async";
 
 import "package:app_ui/app_ui.dart";
-import "package:flutter/material.dart" hide ProgressIndicator;
-import "package:google_mobile_ads/google_mobile_ads.dart";
 import "package:feed_blocks/feed_blocks.dart";
 import "package:feed_blocks_ui/src/widgets/widgets.dart";
+import "package:flutter/material.dart" hide ProgressIndicator;
+import "package:google_mobile_ads/google_mobile_ads.dart";
 import "package:platform/platform.dart" as platform;
 
 /// {@template banner_ad_failed_to_load_exception}

@@ -1,8 +1,8 @@
 import "package:app_ui/app_ui.dart";
-import "package:flutter/material.dart";
 import "package:feed_blocks/feed_blocks.dart";
 import "package:feed_blocks_ui/feed_blocks_ui.dart";
 import "package:feed_blocks_ui/src/widgets/widgets.dart";
+import "package:flutter/material.dart";
 
 /// {@template slideshow_introduction}
 /// A reusable slideshow introduction news block widget.

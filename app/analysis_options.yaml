@@ -15,6 +15,7 @@ analyzer:
     - lib/l10n/*
     - lib/generated/*
     - lib/**/*.g.dart
+    - packages/**/*.g.dart
     - assets/**/*.gen.dart
     - packages/**/*.gen.dart
 

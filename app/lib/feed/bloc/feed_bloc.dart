@@ -2,10 +2,10 @@ import "dart:async";
 
 import "package:bloc_concurrency/bloc_concurrency.dart";
 import "package:equatable/equatable.dart";
+import "package:feed_blocks/feed_blocks.dart";
 import "package:feed_repository/feed_repository.dart";
 import "package:hydrated_bloc/hydrated_bloc.dart";
 import "package:json_annotation/json_annotation.dart";
-import "package:feed_blocks/feed_blocks.dart";
 
 part "feed_bloc.g.dart";
 part "feed_event.dart";

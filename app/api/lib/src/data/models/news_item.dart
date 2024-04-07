@@ -16,10 +16,10 @@ class NewsItem {
   });
 
   /// The associated content.
-  final List<NewsBlock> content;
+  final List<FeedBlock> content;
 
   /// The associated preview of the content.
-  final List<NewsBlock> contentPreview;
+  final List<FeedBlock> contentPreview;
 
   /// The associated [PostBlock] for the feed.
   final PostBlock post;
@@ -28,5 +28,5 @@ class NewsItem {
   final Uri url;
 
   /// The related articles.
-  final List<NewsBlock> relatedArticles;
+  final List<FeedBlock> relatedArticles;
 }

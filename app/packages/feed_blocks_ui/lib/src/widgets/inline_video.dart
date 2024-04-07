@@ -1,5 +1,5 @@
-import "package:flutter/material.dart";
 import "package:feed_blocks_ui/src/generated/generated.dart";
+import "package:flutter/material.dart";
 import "package:video_player/video_player.dart";
 
 /// Signature for [VideoPlayerController] builder.

@@ -1,6 +1,6 @@
 import "package:app_ui/app_ui.dart";
-import "package:flutter/material.dart";
 import "package:feed_blocks_ui/src/widgets/widgets.dart";
+import "package:flutter/material.dart";
 
 /// {@template post_content}
 /// A post widget displaying post content.
