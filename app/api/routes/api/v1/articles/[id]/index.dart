@@ -1,7 +1,7 @@
 import "dart:io";
 
+import "package:app_api/api.dart";
 import "package:dart_frog/dart_frog.dart";
-import "package:flutter_news_example_api/api.dart";
 
 Future<Response> onRequest(RequestContext context, String id) async {
   if (context.request.method != HttpMethod.get) {
@@ -12,8 +12,8 @@ Future<Response> onRequest(RequestContext context, String id) async {
   final limit = int.tryParse(queryParams["limit"] ?? "") ?? 20;
   final offset = int.tryParse(queryParams["offset"] ?? "") ?? 0;
   final previewRequested = queryParams["preview"] == "true";
-  final newsDataSource = context.read<NewsDataSource>();
-  final isPremium = await newsDataSource.isPremiumArticle(id: id);
+  final feedDataSource = context.read<FeedDataSource>();
+  final isPremium = await feedDataSource.isPremiumArticle(id: id);
 
   if (isPremium == null) return Response(statusCode: HttpStatus.notFound);
 
@@ -22,14 +22,14 @@ Future<Response> onRequest(RequestContext context, String id) async {
     if (!isPremium) return true;
     final requestUser = context.read<RequestUser>();
     if (isPremium && requestUser.isAnonymous) return false;
-    final user = await newsDataSource.getUser(userId: requestUser.id);
+    final user = await feedDataSource.getUser(userId: requestUser.id);
     if (user == null) return false;
     if (user.subscription == SubscriptionPlan.none) return false;
     return true;
   }
 
   final showFullArticle = await shouldShowFullArticle();
-  final article = await newsDataSource.getArticle(
+  final article = await feedDataSource.getArticle(
     id: id,
     limit: limit,
     offset: offset,

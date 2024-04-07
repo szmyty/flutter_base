@@ -1,7 +1,7 @@
 import "dart:io";
 
+import "package:app_api/api.dart";
 import "package:dart_frog/dart_frog.dart";
-import "package:flutter_news_example_api/api.dart";
 
 Future<Response> onRequest(RequestContext context, String id) async {
   if (context.request.method != HttpMethod.get) {
@@ -12,7 +12,7 @@ Future<Response> onRequest(RequestContext context, String id) async {
   final limit = int.tryParse(queryParams["limit"] ?? "") ?? 20;
   final offset = int.tryParse(queryParams["offset"] ?? "") ?? 0;
   final relatedArticles = await context
-      .read<NewsDataSource>()
+      .read<FeedDataSource>()
       .getRelatedArticles(id: id, limit: limit, offset: offset);
   final response = RelatedArticlesResponse(
     relatedArticles: relatedArticles.blocks,
