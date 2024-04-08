@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
+import "package:feed_blocks_ui/src/widgets/widgets.dart";
 import "package:flutter/material.dart" hide ProgressIndicator;
 import "package:flutter_test/flutter_test.dart";
-import "package:feed_blocks_ui/src/widgets/widgets.dart";
 import "package:video_player/video_player.dart";
 import "package:video_player_platform_interface/video_player_platform_interface.dart";
 

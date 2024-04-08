@@ -1,5 +1,5 @@
-import "package:json_annotation/json_annotation.dart";
 import "package:feed_blocks/feed_blocks.dart";
+import "package:json_annotation/json_annotation.dart";
 
 /// {@template block_action_converter}
 /// A [JsonConverter] that supports (de)serializing a [BlockAction].

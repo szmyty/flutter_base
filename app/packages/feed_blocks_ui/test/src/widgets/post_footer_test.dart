@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
+import "package:feed_blocks_ui/src/widgets/widgets.dart";
 import "package:flutter/material.dart";
 import "package:flutter_test/flutter_test.dart";
-import "package:feed_blocks_ui/src/widgets/widgets.dart";
 
 import "../../helpers/helpers.dart";
 

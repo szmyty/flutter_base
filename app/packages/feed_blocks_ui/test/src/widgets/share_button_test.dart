@@ -1,7 +1,7 @@
 import "dart:async";
 
-import "package:flutter_test/flutter_test.dart";
 import "package:feed_blocks_ui/src/widgets/share_button.dart";
+import "package:flutter_test/flutter_test.dart";
 
 import "../../helpers/helpers.dart";
 

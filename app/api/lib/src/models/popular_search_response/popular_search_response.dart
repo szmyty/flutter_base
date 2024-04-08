@@ -1,6 +1,6 @@
 import "package:equatable/equatable.dart";
-import "package:json_annotation/json_annotation.dart";
 import "package:feed_blocks/feed_blocks.dart";
+import "package:json_annotation/json_annotation.dart";
 
 part "popular_search_response.g.dart";
 

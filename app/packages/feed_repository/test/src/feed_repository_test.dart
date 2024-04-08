@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 import "package:app_api/client.dart";
-import "package:mocktail/mocktail.dart";
 import "package:feed_repository/feed_repository.dart";
+import "package:mocktail/mocktail.dart";
 import "package:test/test.dart";
 
 class MockFlutterNewsExampleApiClient extends Mock
