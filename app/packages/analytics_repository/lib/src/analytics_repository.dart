@@ -93,14 +93,14 @@ class FileAnalytics implements Analytics {
   // Method to initialize the file
   Future<void> _initFile(File? file) async {
     if (file != null) {
-      _file = file; // Use the provided file if available
+      _file = file;
     } else {
-      final directory = await getApplicationDocumentsDirectory(); // Get the app's documents directory
-      const appName = "YourAppName"; // Replace 'YourAppName' with your actual app name
-      const ulid = "YourMonotonicULID"; // Replace 'YourMonotonicULID' with your actual ULID implementation
-      const fileName = "analytics_${appName}_$ulid.txt"; // Define the file name
+      final directory = await getApplicationDocumentsDirectory();
+      const appName = "YourAppName";
+      const ulid = "YourMonotonicULID";
+      const fileName = "analytics_${appName}_$ulid.txt";
 
-      _file = File("${directory.path}/$fileName"); // Set the file path
+      _file = File("${directory.path}/$fileName");
     }
   }
 
@@ -116,7 +116,9 @@ class FileAnalytics implements Analytics {
   }
 
   @override
-  Future<void> logEvent({required String name, Map<String, Object?>? parameters}) async {
+  Future<void> logEvent(
+    {required String name, Map<String, Object?>? parameters,}
+  ) async {
     // Implementation to log event to the file
     try {
         // Write event to the file

@@ -69,8 +69,8 @@ class AppState extends Equatable {
 
   /// Returns `true` if the user is subscribed; otherwise, returns `false`.
   ///
-  /// TODO(me): This is a placeholder method. The actual implementation should check
-  /// the subscription status of the user.
+  /// TODO(me): This is a placeholder method. The actual implementation should
+  /// check the subscription status of the user.
   bool get isUserSubscribed => true;
 
   @override

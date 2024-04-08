@@ -36,6 +36,8 @@ linter:
     prefer_single_quotes: false
     prefer_double_quotes: true
     directives_ordering: true
+    flutter_style_todos: false
+    public_member_api_docs: false
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
