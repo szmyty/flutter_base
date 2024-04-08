@@ -1,5 +1,5 @@
-import 'package:app_ui/app_ui.dart';
-import 'package:flutter/material.dart';
+import "package:app_ui/app_ui.dart";
+import "package:flutter/material.dart";
 
 class ColorsPage extends StatelessWidget {
   const ColorsPage({super.key});
@@ -11,79 +11,79 @@ class ColorsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const colorItems = [
-      _ColorItem(name: 'Secondary', color: AppColors.secondary),
-      _ColorItem(name: 'Black', color: AppColors.black),
-      _ColorItem(name: 'Black Light', color: AppColors.lightBlack),
+      _ColorItem(name: "Secondary", color: AppColors.secondary),
+      _ColorItem(name: "Black", color: AppColors.black),
+      _ColorItem(name: "Black Light", color: AppColors.lightBlack),
       _ColorItem(
-        name: 'Medium Emphasis',
+        name: "Medium Emphasis",
         color: AppColors.mediumEmphasisSurface,
       ),
-      _ColorItem(name: 'White', color: AppColors.white),
-      _ColorItem(name: 'Modal Background', color: AppColors.modalBackground),
-      _ColorItem(name: 'Transparent', color: AppColors.transparent),
-      _ColorItem(name: 'Blue', color: AppColors.blue),
-      _ColorItem(name: 'Sky Blue', color: AppColors.skyBlue),
-      _ColorItem(name: 'Ocean Blue', color: AppColors.oceanBlue),
-      _ColorItem(name: 'Light Blue', color: AppColors.lightBlue),
-      _ColorItem(name: 'Blue Dress', color: AppColors.blueDress),
-      _ColorItem(name: 'Crystal Blue', color: AppColors.crystalBlue),
-      _ColorItem(name: 'Yellow', color: AppColors.yellow),
-      _ColorItem(name: 'Red', color: AppColors.red),
-      _ColorItem(name: 'Red Wine', color: AppColors.redWine),
-      _ColorItem(name: 'Grey', color: AppColors.grey),
-      _ColorItem(name: 'Liver', color: AppColors.liver),
-      _ColorItem(name: 'Surface 2', color: AppColors.surface2),
-      _ColorItem(name: 'Input Enabled', color: AppColors.inputEnabled),
-      _ColorItem(name: 'Input Hover', color: AppColors.inputHover),
-      _ColorItem(name: 'Input Focused', color: AppColors.inputFocused),
-      _ColorItem(name: 'Pastel Grey', color: AppColors.pastelGrey),
-      _ColorItem(name: 'Bright Grey', color: AppColors.brightGrey),
-      _ColorItem(name: 'Pale Sky', color: AppColors.paleSky),
-      _ColorItem(name: 'Green', color: AppColors.green),
-      _ColorItem(name: 'Rangoon Green', color: AppColors.rangoonGreen),
-      _ColorItem(name: 'Teal', color: AppColors.teal),
-      _ColorItem(name: 'Dark Aqua', color: AppColors.darkAqua),
-      _ColorItem(name: 'Eerie Black', color: AppColors.eerieBlack),
-      _ColorItem(name: 'Gainsboro', color: AppColors.gainsboro),
-      _ColorItem(name: 'Orange', color: AppColors.orange),
-      _ColorItem(name: 'Outline Light', color: AppColors.outlineLight),
-      _ColorItem(name: 'Outline On Dark', color: AppColors.outlineOnDark),
+      _ColorItem(name: "White", color: AppColors.white),
+      _ColorItem(name: "Modal Background", color: AppColors.modalBackground),
+      _ColorItem(name: "Transparent", color: AppColors.transparent),
+      _ColorItem(name: "Blue", color: AppColors.blue),
+      _ColorItem(name: "Sky Blue", color: AppColors.skyBlue),
+      _ColorItem(name: "Ocean Blue", color: AppColors.oceanBlue),
+      _ColorItem(name: "Light Blue", color: AppColors.lightBlue),
+      _ColorItem(name: "Blue Dress", color: AppColors.blueDress),
+      _ColorItem(name: "Crystal Blue", color: AppColors.crystalBlue),
+      _ColorItem(name: "Yellow", color: AppColors.yellow),
+      _ColorItem(name: "Red", color: AppColors.red),
+      _ColorItem(name: "Red Wine", color: AppColors.redWine),
+      _ColorItem(name: "Grey", color: AppColors.grey),
+      _ColorItem(name: "Liver", color: AppColors.liver),
+      _ColorItem(name: "Surface 2", color: AppColors.surface2),
+      _ColorItem(name: "Input Enabled", color: AppColors.inputEnabled),
+      _ColorItem(name: "Input Hover", color: AppColors.inputHover),
+      _ColorItem(name: "Input Focused", color: AppColors.inputFocused),
+      _ColorItem(name: "Pastel Grey", color: AppColors.pastelGrey),
+      _ColorItem(name: "Bright Grey", color: AppColors.brightGrey),
+      _ColorItem(name: "Pale Sky", color: AppColors.paleSky),
+      _ColorItem(name: "Green", color: AppColors.green),
+      _ColorItem(name: "Rangoon Green", color: AppColors.rangoonGreen),
+      _ColorItem(name: "Teal", color: AppColors.teal),
+      _ColorItem(name: "Dark Aqua", color: AppColors.darkAqua),
+      _ColorItem(name: "Eerie Black", color: AppColors.eerieBlack),
+      _ColorItem(name: "Gainsboro", color: AppColors.gainsboro),
+      _ColorItem(name: "Orange", color: AppColors.orange),
+      _ColorItem(name: "Outline Light", color: AppColors.outlineLight),
+      _ColorItem(name: "Outline On Dark", color: AppColors.outlineOnDark),
       _ColorItem(
-        name: 'Medium Emphasis Primary',
+        name: "Medium Emphasis Primary",
         color: AppColors.mediumEmphasisPrimary,
       ),
       _ColorItem(
-        name: 'High Emphasis Primary',
+        name: "High Emphasis Primary",
         color: AppColors.highEmphasisPrimary,
       ),
       _ColorItem(
-        name: 'Medium High Emphasis Primary',
+        name: "Medium High Emphasis Primary",
         color: AppColors.mediumHighEmphasisPrimary,
       ),
       _ColorItem(
-        name: 'Medium High Emphasis Surface',
+        name: "Medium High Emphasis Surface",
         color: AppColors.mediumHighEmphasisSurface,
       ),
       _ColorItem(
-        name: 'High Emphasis Surface',
+        name: "High Emphasis Surface",
         color: AppColors.highEmphasisSurface,
       ),
       _ColorItem(
-        name: 'Disabled Foreground',
+        name: "Disabled Foreground",
         color: AppColors.disabledForeground,
       ),
       _ColorItem(
-        name: 'Disabled Button',
+        name: "Disabled Button",
         color: AppColors.disabledButton,
       ),
       _ColorItem(
-        name: 'Disabled Surface',
+        name: "Disabled Surface",
         color: AppColors.disabledSurface,
       ),
     ];
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Colors')),
+      appBar: AppBar(title: const Text("Colors")),
       body: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: colorItems.length,
@@ -163,9 +163,9 @@ class _ColorSquare extends StatelessWidget {
 
   String get hexCode {
     if (color.value.toRadixString(16).length <= 2) {
-      return '--';
+      return "--";
     } else {
-      return '#${color.value.toRadixString(16).substring(2).toUpperCase()}';
+      return "#${color.value.toRadixString(16).substring(2).toUpperCase()}";
     }
   }
 

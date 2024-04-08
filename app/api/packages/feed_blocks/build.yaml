@@ -11,9 +11,16 @@ targets:
             - require_trailing_commas
       json_serializable:
         options:
-          create_to_json: true
-          create_factory: true
+          any_map: false
           checked: true
+          constructor: ""
+          create_factory: true
+          create_field_map: false
+          create_per_field_to_json: false
+          create_to_json: true
+          disallow_unrecognized_keys: false
           explicit_to_json: true
           field_rename: snake
+          generic_argument_factories: false
+          ignore_unannotated: false
           include_if_null: false

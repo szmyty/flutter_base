@@ -16,10 +16,10 @@ class _MockFeedDataSource extends Mock implements FeedDataSource {}
 class _MockRequestUser extends Mock implements RequestUser {}
 
 void main() {
-  late FeedDataSource newsDataSource;
+  late FeedDataSource feedDataSource;
 
   setUp(() {
-    newsDataSource = _MockFeedDataSource();
+    feedDataSource = _MockFeedDataSource();
   });
 
   group("GET /api/v1/users/me", () {
@@ -40,15 +40,15 @@ void main() {
       when(() => user.isAnonymous).thenReturn(false);
       final context = _MockRequestContext();
       when(() => context.request).thenReturn(request);
-      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(feedDataSource);
       when(() => context.read<RequestUser>()).thenReturn(user);
       when(
-        () => newsDataSource.getUser(userId: any(named: "userId")),
+        () => feedDataSource.getUser(userId: any(named: "userId")),
       ).thenAnswer((_) async => null);
 
       final response = await route.onRequest(context);
       expect(response.statusCode, equals(HttpStatus.notFound));
-      verify(() => newsDataSource.getUser(userId: userId)).called(1);
+      verify(() => feedDataSource.getUser(userId: userId)).called(1);
     });
 
     test("responds with a 200 when user is found.", () async {
@@ -60,17 +60,17 @@ void main() {
       when(() => requestUser.isAnonymous).thenReturn(false);
       final context = _MockRequestContext();
       when(() => context.request).thenReturn(request);
-      when(() => context.read<FeedDataSource>()).thenReturn(newsDataSource);
+      when(() => context.read<FeedDataSource>()).thenReturn(feedDataSource);
       when(() => context.read<RequestUser>()).thenReturn(requestUser);
       when(
-        () => newsDataSource.getUser(userId: any(named: "userId")),
+        () => feedDataSource.getUser(userId: any(named: "userId")),
       ).thenAnswer((_) async => user);
       final expected = CurrentUserResponse(user: user);
 
       final response = await route.onRequest(context);
       expect(response.statusCode, equals(HttpStatus.ok));
       expect(response.json(), completion(equals(expected.toJson())));
-      verify(() => newsDataSource.getUser(userId: userId)).called(1);
+      verify(() => feedDataSource.getUser(userId: userId)).called(1);
     });
   });
 

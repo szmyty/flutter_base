@@ -5,7 +5,6 @@ import "package:feed_blocks/feed_blocks.dart";
 import "package:feed_blocks_ui/feed_blocks_ui.dart";
 import "package:flutter/material.dart";
 import "package:flutter_html/flutter_html.dart" as flutter_html;
-import "package:flutter_html/flutter_html.dart";
 import "package:flutter_test/flutter_test.dart";
 import "package:mocktail/mocktail.dart";
 import "package:plugin_platform_interface/plugin_platform_interface.dart";
@@ -35,7 +34,7 @@ void main() {
     testWidgets("renders HTML text correctly", (tester) async {
       const block = HtmlBlock(content: "<p>Hello</p>");
 
-      await tester.pumpApp(Html(data: block.content));
+      await tester.pumpApp(Html(block: block));
 
       expect(
         find.byWidgetPredicate(
@@ -52,7 +51,7 @@ void main() {
           content: '<a href="#">flutter.dev</a>',
         );
 
-        await tester.pumpApp(Html(data: block.content));
+        await tester.pumpApp(Html(block: block));
 
         await tester.tap(
           find.textContaining("flutter.dev", findRichText: true),
@@ -66,7 +65,7 @@ void main() {
           content: '<a href="::Not valid URI::">flutter.dev</a>',
         );
 
-        await tester.pumpApp(Html(data: block.content));
+        await tester.pumpApp(Html(block: block));
 
         await tester.tap(
           find.textContaining("flutter.dev", findRichText: true),
@@ -80,7 +79,7 @@ void main() {
           content: '<a href="https://flutter.dev">flutter.dev</a>',
         );
 
-        await tester.pumpApp(Html(data: block.content));
+        await tester.pumpApp(Html(block: block));
 
         await tester.tap(
           find.textContaining("flutter.dev", findRichText: true),
@@ -101,7 +100,7 @@ void main() {
         await tester.pumpApp(
           MaterialApp(
             theme: theme,
-            home: Html(data: block.content),
+            home: Html(block: block),
           ),
         );
 
@@ -125,7 +124,7 @@ void main() {
         await tester.pumpApp(
           MaterialApp(
             theme: theme,
-            home: Html(data: block.content),
+            home: Html(block: block),
           ),
         );
 
@@ -150,7 +149,7 @@ void main() {
         await tester.pumpApp(
           MaterialApp(
             theme: theme,
-            home: Html(data: block.content),
+            home: Html(block: block),
           ),
         );
 
@@ -175,7 +174,7 @@ void main() {
         await tester.pumpApp(
           MaterialApp(
             theme: theme,
-            home: Html(data: block.content),
+            home: Html(block: block),
           ),
         );
 
@@ -200,7 +199,7 @@ void main() {
         await tester.pumpApp(
           MaterialApp(
             theme: theme,
-            home: Html(data: block.content),
+            home: Html(block: block),
           ),
         );
 
@@ -225,7 +224,7 @@ void main() {
         await tester.pumpApp(
           MaterialApp(
             theme: theme,
-            home: Html(data: block.content),
+            home: Html(block: block),
           ),
         );
 
@@ -250,7 +249,7 @@ void main() {
         await tester.pumpApp(
           MaterialApp(
             theme: theme,
-            home: Html(data: block.content),
+            home: Html(block: block),
           ),
         );
 

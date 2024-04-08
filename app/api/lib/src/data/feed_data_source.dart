@@ -84,7 +84,7 @@ abstract class FeedDataSource {
     required String subscriptionId,
   });
 
-  /// Returns a list of all available news subscriptions.
+  /// Returns a list of all available subscriptions.
   Future<List<Subscription>> getSubscriptions();
 
   /// Returns the user associated with the provided [userId].

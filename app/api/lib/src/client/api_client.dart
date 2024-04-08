@@ -36,7 +36,7 @@ class ApiRequestFailure implements Exception {
 typedef TokenProvider = Future<String?> Function();
 
 /// {@template api_client}
-/// A Dart API client for the Flutter News Example API.
+/// A Dart API client for the App API.
 /// {@endtemplate}
 class ApiClient {
   /// Create an instance of [ApiClient] that integrates
@@ -79,7 +79,7 @@ class ApiClient {
   final TokenProvider _tokenProvider;
 
   /// GET /api/v1/feed
-  /// Requests news feed metadata.
+  /// Requests feed metadata.
   ///
   /// Supported parameters:
   /// * [category] - The desired [Category].
