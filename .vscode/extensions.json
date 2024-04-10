@@ -7,6 +7,7 @@
         "editorconfig.editorconfig",
         "foxundermoon.shell-format",
         "timonwong.shellcheck",
-        "yzhang.markdown-all-in-one"
+        "yzhang.markdown-all-in-one",
+        "ms-vscode.cmake-tools"
     ]
 }
